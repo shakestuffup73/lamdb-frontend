@@ -6,8 +6,9 @@ import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
-// import Profiles from './pages/Profiles/Profiles'
+import MyProfile from './pages/MyProfile/MyProfile'
 import AddPet from './pages/AddPet/AddPet'
+import AddVet from './pages/AddVet/AddVet'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 
 // components
@@ -47,14 +48,14 @@ const App = () => {
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
-        {/* <Route
-          path="/profiles"
+        <Route
+          path="/MyProfile"
           element={
             <ProtectedRoute user={user}>
-              <Profiles />
+              <MyProfile />
             </ProtectedRoute>
           }
-        /> */}
+        />
         <Route
           path="/change-password"
           element={
@@ -63,7 +64,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-        {/* <Route path='/addVet' element={<AddVet />} /> */}
+        <Route path='/addVet' element={<AddVet />} />
         <Route path='/addPet' element={<AddPet />} />
       </Routes>
     </>
