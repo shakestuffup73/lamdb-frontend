@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import * as vetService from '../../services/etService'
+import * as vetService from '../../services/vetService'
 
 const AddVet = () => {
 
