@@ -1,6 +1,12 @@
 import { useState, useRef, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import * as vetService from '../../services/vetService'
 
 const AddVet = () => {
+
+  const [vets, setVets] = useState([])
+  const navigate = useNavigate()
+
   const [formData, setFormData] = useState({
     name: '',
     contact: '',
@@ -25,7 +31,20 @@ const AddVet = () => {
     useEffect(() => {
       formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
       }, [formData])
+    
+    const handleAddVet = async (newVetData) => {
+      const newVet = await vetService.create(newVetData)
+        setVets([...vets, newVet])
+        navigate('/')
+      }
 
+    const handleSubmit = evt => {
+      evt.preventDefault()
+      // call some function that sends formData somewhere
+      handleAddVet(formData)
+      }
+
+    
   return ( 
     <>
     <h1> Add a Vet Visit here!</h1>
