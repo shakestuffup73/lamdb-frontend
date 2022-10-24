@@ -1,7 +1,14 @@
 import { useState, useRef, useEffect } from "react"
+import { Route, Routes, Link, useNavigate } from 'react-router-dom'
 import styles from './AddPet.module.css'
+import * as petService from '../../services/petService'
 
 const AddPet = (props) => {
+
+  const [pets, setPets] = useState([])
+
+  const navigate = useNavigate()
+
   const [formData, setFormData] = useState({
     petName: '',
     species: '', 
@@ -32,10 +39,26 @@ const AddPet = (props) => {
     formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
   }, [formData])
 
+  const handleAddPet = async (newPetData, photo) => {
+    const newPet = await petService.create(newPetData)
+    // if there is a photo
+    if (photo) {
+      newPet.photo = await petPhotoHelper(photo, newPet._id)
+    }
+    setPets([...pets, newPet])
+    navigate('/')
+  }
+
+  const petPhotoHelper = async (photo, id) => {
+    const photoData = new FormData()
+    photoData.append('photo', photo)
+    return await petService.addPhoto(photoData, id)
+  }
+
   const handleSubmit = evt => {
     evt.preventDefault()
     // call some function that sends formData somewhere
-    props.handleAddPet(formData, photoData.photo)
+    handleAddPet(formData, photoData.photo)
   }
 
   return ( 
