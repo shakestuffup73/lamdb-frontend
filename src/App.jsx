@@ -62,6 +62,8 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        {/* <Route path='/addVet' element={<AddVet />} />
+        <Route path='/addPet' element={<AddPet />} /> */}
       </Routes>
     </>
   )
