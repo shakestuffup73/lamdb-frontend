@@ -31,5 +31,6 @@ We hope you enjoy this app!
 - Trello
   
 ## Credits: 
+- Paw Print favicon used from Isabella Baillie on Giphy - https://giphy.com/stickers/paw-pawprint-print-fXWP44L91ioNZQSh2G
 
 ## Next Steps:
