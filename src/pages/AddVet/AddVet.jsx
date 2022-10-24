@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import * as vetService from '../../services/vetService'
+import * as vetService from '../../services/etService'
 
 const AddVet = () => {
 
@@ -134,7 +134,7 @@ const AddVet = () => {
 						Pet Weight:
 					</label>
 					<input 
-						type="number"
+						type="text"
 						className="form-control"
 						id="weight-input"
 						name="weight"
@@ -147,7 +147,7 @@ const AddVet = () => {
 						Vet Visit Cost:
 					</label>
 					<input 
-						type="number"
+						type="text"
 						className="form-control"
 						id="cost-input"
 						name="results"
