@@ -1,11 +1,19 @@
+import { useState, useRef, useEffect } from "react"
+
 const AddVet = () => {
   const [formData, setFormData] = useState({
     name: '',
-    breed: '', 
-    age: 0
+    contact: '',
+    description: '',
+    diagnosis: '',
+    results: '',
+    medications: '',
+    weight: '',
+    cost: '',
+    appointment: '',
+    rabies: '',
   })
-	  const [photoData, setPhotoData] = useState({})
-
+	
     const [validForm, setValidForm] = useState(false)
   
     const handleChange = evt => {
