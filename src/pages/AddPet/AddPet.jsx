@@ -12,10 +12,10 @@ const AddPet = (props) => {
   const [formData, setFormData] = useState({
     petName: '',
     species: '', 
-    color: 0,
+    color: '',
     breed: '',
-    age: 0,
-    weight: 0,
+    age: '',
+    weight: '',
     behaviorNotes: '',
     allergies: '',
     microchipLink: '',
@@ -41,12 +41,11 @@ const AddPet = (props) => {
 
   const handleAddPet = async (newPetData, photo) => {
     const newPet = await petService.create(newPetData)
-    // if there is a photo
     if (photo) {
       newPet.photo = await petPhotoHelper(photo, newPet._id)
     }
     setPets([...pets, newPet])
-    navigate('/')
+    navigate('/my-profile')
   }
 
   const petPhotoHelper = async (photo, id) => {
@@ -57,7 +56,6 @@ const AddPet = (props) => {
 
   const handleSubmit = evt => {
     evt.preventDefault()
-    // call some function that sends formData somewhere
     handleAddPet(formData, photoData.photo)
   }
 
@@ -101,7 +99,7 @@ const AddPet = (props) => {
 						Color
 					</label>
 					<input 
-						type="number"
+						type="text"
 						className="form-control"
 						id="color-input"
 						name="color"
@@ -114,7 +112,7 @@ const AddPet = (props) => {
 						Breed
 					</label>
 					<input 
-						type="number"
+						type="text"
 						className="form-control"
 						id="breed-input"
 						name="breed"
@@ -127,7 +125,7 @@ const AddPet = (props) => {
 						Age
 					</label>
 					<input 
-						type="number"
+						type="text"
 						className="form-control"
 						id="age-input"
 						name="age"
@@ -140,7 +138,7 @@ const AddPet = (props) => {
 						Weight (in pounds)
 					</label>
 					<input 
-						type="number"
+						type="text"
 						className="form-control"
 						id="weight-input"
 						name="weight"

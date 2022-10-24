@@ -49,7 +49,7 @@ const App = () => {
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route
-          path="/MyProfile"
+          path="/my-profile"
           element={
             <ProtectedRoute user={user}>
               <MyProfile />
