@@ -1,69 +1,35 @@
-# Decoupled MERN Stack with JWT Auth Template - Front End
+# LAMdb
 
-This is the front end of a decoupled MERN Stack app that includes JWT Authentication.
+## Welcome to our LAMDdb app!
+It’s hard to keep track of vet records and invoices over the years, and most of us as pet owners rely solely on our email to do so. No matter if you have one fur-baby or five, that lack of organization makes managing our pet health history a challenging and daunting task! 
 
-When combined with the back end found [here](https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-back-end), you'll have all you need to build a full stack MERN app!
+This app will: 
+- Be the single point of organization that keeps track of your pet’s records for their wellbeing.
+- Store important information about your pets’ in their pet profile (this includes allergies, microchip number, behavior notes etc).
+- Store individual vet records for each vet visit your pet has.
 
-Use this to go build things! 🚀
+We hope you enjoy this app! 
 
-## To Use This Template
+### Here is a link to our app:
 
-**Replace `<name-of-your-app-here>` in the commands below with the name of your app!**
+## Planning Materials:
+#### Link to Trello Board: https://trello.com/b/Of4o4JVy/lamdb
 
-```bash
-git clone https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-front-end <name-of-your-app-here>-front-end
-cd <name-of-your-app-here>-front-end
-code .
-```
+### Below is our wireframe:
 
-With the project open in VS Code, open a terminal and run:
+### ERD:
 
-```bash
-rm -rf .git
-```
+### Desktop View:
+### Mobile View:
 
-Here's what your command line output should like after this step (note that the indicator that we are in a git repository is gone!)
+## Technologies Used:
+- React JS
+- VS Code
+- CSS
+- Whimsical
+- Git
+- Trello
+  
+## Credits: 
 
-<img src="https://i.imgur.com/L47kNOZ.png" alt="The command line before and after running the rm -rf .git command. Before git:(main) is visible indiating that the directory contains a git repository, after the command it is not.">
-
-Re-initialize a git repository:
-
-```bash
-git init
-```
-
-Create a repo for this project on GitHub and add that remote to your project with:
-
-```bash
-git remote add origin your-repo-URL-here
-```
-
-Run `npm i` to fetch the template's dependencies:
-
-```bash
-npm i
-```
-
-touch a `.env` file:
-
-```bash
-touch .env
-```
-
-Fill it with the following:
-
-```
-REACT_APP_BACK_END_SERVER_URL=http://localhost:3001
-```
-
-> 🚨 DO NOT place secrets in this `.env` file. The contents of this file WILL be exposed to site visitors. We are only using the front-end .env to create variables specific to the environment the application is running in.
-
-Delete this README.md, then make an initial commit:
-
-```bash
-git add .
-git commit -m "initial commit"
-git push origin main
-```
-
-You're done!
+## Next Steps:
