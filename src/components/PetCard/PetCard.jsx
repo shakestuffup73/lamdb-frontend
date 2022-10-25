@@ -1,7 +1,7 @@
 // import { useEffect } from 'react';
 import styles from './PetCard.module.css'
 
-const PetCard = ({ pet, photo, handleDeletePet}) => {
+const PetCard = ({ pet, photo}) => {
 
   // useEffect(() => {
   //   console.log('this is pet', pet);
@@ -23,7 +23,6 @@ const PetCard = ({ pet, photo, handleDeletePet}) => {
         className="card-img-top"
         style={{ width: "640px" }}
         />
-        <button>Update Pet Photo</button>
       </div>
       <div className={styles.card}>
         <h2>{pet.petName}</h2>
