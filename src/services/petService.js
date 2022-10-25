@@ -26,7 +26,16 @@ async function addPhoto(photoData, petId) {
   return await res.json()
 }
 
+async function deleteOne(id) {
+  const res = await fetch(`${BASE_URL}/${id}`, {
+    method: 'DELETE'
+  })
+  return res.json()
+}
+
+
 export {
   create,
   addPhoto,
+  deleteOne
 }

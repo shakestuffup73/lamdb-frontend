@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react'
 import * as profileService from '../../services/profileService'
 import PetCard from '../../components/PetCard/PetCard.jsx'
 
-const MyProfile = () => {
+const MyProfile = (props) => {
   const [profile, setProfile] = useState([])
+
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -20,12 +21,13 @@ const MyProfile = () => {
   return (
     profile &&
     <div style={{marginTop: '201px'}}>
+      
       <h1>This is your profile!</h1>
         <>
           <p>{profile.name}</p>
           {profile.pets?.map((pet, idx) => 
             <div key={idx}>
-              <PetCard pet={pet}  />
+              <PetCard pet={pet} handleDeletePet={props.handleDeletePet} />
               <button>{pet.petName}'s Profile</button>
             </div>
           )}
