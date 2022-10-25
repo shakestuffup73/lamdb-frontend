@@ -1,6 +1,16 @@
+import { useEffect } from 'react';
 import styles from './PetCard.module.css'
 
-const PetCard = ({ pet }) => {
+const PetCard = ({ pet, photo }) => {
+
+  useEffect(() => {
+    console.log('this is pet', pet);
+  }, [pet])
+
+  useEffect(() => {
+    console.log('this is pet', photo);
+  }, [photo])
+
   return (
     <>
       <div className={styles.container}>
