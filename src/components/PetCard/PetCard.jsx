@@ -1,17 +1,15 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import styles from './PetCard.module.css'
-import { Link } from 'react-router-dom';
-
 
 const PetCard = ({ pet, photo, handleDeletePet}) => {
 
-  useEffect(() => {
-    console.log('this is pet', pet);
-  }, [pet])
+  // useEffect(() => {
+  //   console.log('this is pet', pet);
+  // }, [pet])
 
-  useEffect(() => {
-    console.log('this is pet', photo);
-  }, [photo])
+  // useEffect(() => {
+  //   console.log('this is pet', photo);
+  // }, [photo])
 
   return (
     <>

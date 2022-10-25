@@ -1,15 +1,7 @@
 import { useState, useRef, useEffect } from "react"
-import { Route, Routes, Link, useNavigate } from 'react-router-dom'
 import styles from './AddPet.module.css'
-import * as petService from '../../services/petService'
-import MyProfile from "../MyProfile/MyProfile"
 
 const AddPet = (props) => {
-
-  const [pets, setPets] = useState([])
-
-  const navigate = useNavigate()
-
   const [formData, setFormData] = useState({
     petName: '',
     species: '', 
@@ -25,7 +17,7 @@ const AddPet = (props) => {
 	const [photoData, setPhotoData] = useState({})
 
   const [validForm, setValidForm] = useState(false)
-  
+
   const handleChange = evt => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
   }
@@ -40,31 +32,10 @@ const AddPet = (props) => {
     formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
   }, [formData])
 
-  const handleAddPet = async (newPetData, photo) => {
-    const newPet = await petService.create(newPetData)
-    if (photo) {
-      newPet.photo = await petPhotoHelper(photo, newPet._id)
-    }
-    setPets([...pets, newPet])
-    navigate('/my-profile')
-  }
-
-  const petPhotoHelper = async (photo, id) => {
-    const photoData = new FormData()
-    photoData.append('photo', photo)
-    return await petService.addPhoto(photoData, id)
-  }
-
-  const handleSubmit = evt => {
+	const handleSubmit = evt => {
     evt.preventDefault()
-    handleAddPet(formData, photoData.photo)
+    props.handleAddPet(formData, photoData.photo)
   }
-
-	const handleDeletePet = async id => {
-    const deletedPet = await petService.deleteOne(id)
-    setPets(pets.filter(pet => pet._id !== deletedPet._id))
-  }
-
 
   return ( 
     <>
@@ -82,7 +53,7 @@ const AddPet = (props) => {
 						className="form-control"
 						id="name-input"
 						name="petName"
-            value={formData.name}
+            value={formData.petName}
             onChange={handleChange}
 						required
 					/>
@@ -212,9 +183,6 @@ const AddPet = (props) => {
 					>
 						Add Pet
 					</button>
-					<div style={{display:"none"}}>
-					<MyProfile handleDeletePet={handleDeletePet}/>
-					</div>
 				</div>
 			</form>
     </div>

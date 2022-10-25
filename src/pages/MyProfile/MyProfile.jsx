@@ -5,7 +5,6 @@ import PetCard from '../../components/PetCard/PetCard.jsx'
 const MyProfile = (props) => {
   const [profile, setProfile] = useState([])
 
-
   useEffect(() => {
     const fetchProfile = async () => {
       const profileData = await profileService.getMyProfile()

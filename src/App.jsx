@@ -1,6 +1,6 @@
 // npm modules
-import { useState } from 'react'
-import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 
 // page components
 import Signup from './pages/Signup/Signup'
@@ -17,13 +17,41 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
+import * as petService from './services/petService'
 
 // styles
 import './App.css'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
+
+  const [pets, setPets] = useState([])
+  
   const navigate = useNavigate()
+
+  useEffect(() => {
+    console.log('this is pets',pets);
+  }, [pets])
+
+  const handleAddPet = async (newPetData, photo) => {
+    const newPet = await petService.create(newPetData)
+    if (photo) {
+      newPet.photo = await petPhotoHelper(photo, newPet._id)
+    }
+    setPets([...pets, newPet])
+    navigate('/my-profile')
+  }
+
+  const petPhotoHelper = async (photo, id) => {
+    const photoData = new FormData()
+    photoData.append('photo', photo)
+    return await petService.addPhoto(photoData, id)
+  }
+
+	const handleDeletePet = async id => {
+    const deletedPet = await petService.deleteOne(id)
+    setPets(pets.filter(pet => pet._id !== deletedPet._id))
+  }
 
   const handleLogout = () => {
     authService.logout()
@@ -52,7 +80,7 @@ const App = () => {
           path="/my-profile"
           element={
             <ProtectedRoute user={user}>
-              <MyProfile />
+              <MyProfile handleAddPet={handleAddPet} handleDeletePet={handleDeletePet} pets={pets}/> 
             </ProtectedRoute>
           }
         />
@@ -65,7 +93,7 @@ const App = () => {
           }
         />
         <Route path='/addVet' element={<AddVet />} />
-        <Route path='/addPet' element={<AddPet />} />
+        <Route path='/addPet' element={<AddPet handleAddPet={handleAddPet} handleDeletePet={handleDeletePet} pets={pets}/>} />
       </Routes>
     </>
   )
