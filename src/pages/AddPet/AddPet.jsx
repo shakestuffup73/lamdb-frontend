@@ -187,18 +187,6 @@ const AddPet = (props) => {
 				</div>
 				<div className="form-group mb-4">
 					<label htmlFor="photo-upload" className="form-label">
-						Upload Photo
-					</label>
-				<input 
-					type="file" 
-					className="form=control" 
-					id="photo-upload" 
-					name="photo"
-					onChange={handleChangePhoto} 
-				/>
-				</div>
-				<div className="form-group mb-4">
-					<label htmlFor="photo-upload" className="form-label">
 						Upload Pet Photo
 					</label>
 					<input
