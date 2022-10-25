@@ -2,7 +2,7 @@ import styles from './PetCard.module.css'
 
 const PetCard = ({ pet }) => {
   return (
-    <div className={styles.card}>
+    <div className={styles.container}>
       <img src={
         pet.photo
           ? pet.photo
