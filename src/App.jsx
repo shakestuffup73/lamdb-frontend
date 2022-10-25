@@ -10,6 +10,7 @@ import MyProfile from './pages/MyProfile/MyProfile'
 import AddPet from './pages/AddPet/AddPet'
 import AddVet from './pages/AddVet/AddVet'
 import PetDetails from './pages/PetDetails/PetDetails'
+import VetDetails from './pages/VetDetails/VetDetails'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 
 // components
@@ -19,21 +20,26 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 // services
 import * as authService from './services/authService'
 import * as petService from './services/petService'
-
+import * as vetService from './services/vetService'
 // styles
 import './App.css'
 
 const App = () => {
+  // setting state
   const [user, setUser] = useState(authService.getUser())
 
   const [pets, setPets] = useState([])
+
+  const [vets, setVets] = useState([])
   
   const navigate = useNavigate()
 
+  // use effects
   useEffect(() => {
     console.log('this is pets', pets);
   }, [pets])
 
+  // functions for pet and vet
   const handleAddPet = async (newPetData, photo) => {
     const newPet = await petService.create(newPetData)
     if (photo) {
@@ -42,6 +48,12 @@ const App = () => {
     setPets([...pets, newPet])
     navigate('/my-profile')
   }
+
+  const handleAddVet = async (newVetData) => {
+    const newVet = await vetService.create(newVetData)
+      setVets([...vets, newVet])
+      navigate('/vetDetails/:id')
+    }
 
   const petPhotoHelper = async (photo, id) => {
     const photoData = new FormData()
@@ -55,6 +67,13 @@ const App = () => {
     navigate('/my-profile')
   }
 
+  const handleDeleteVet = async id => {
+    const deletedVet = await vetService.deleteOne(id)
+    setVets(vets.filter(vet => vet._id !== deletedVet._id))
+    navigate('/petDetails/:id')
+  }
+
+  // user login log out functions
   const handleLogout = () => {
     authService.logout()
     setUser(null)
@@ -64,6 +83,10 @@ const App = () => {
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
   }
+
+
+
+
 
   return (
     <>
@@ -95,7 +118,8 @@ const App = () => {
           }
         />
         <Route path='/petDetails/:id' element={<PetDetails pets={pets} handleDeletePet={handleDeletePet} />} />
-        <Route path='/addVet' element={<AddVet />} />
+        <Route path='/addVet' element={<AddVet handleAddVet={handleAddVet} pets={pets} vets={vets} />} />
+        <Route path='/vetDetails/:id' element={<VetDetails pets={pets} vets={vets} handleDeleteVet={handleDeleteVet} />} />
         <Route path='/addPet' element={<AddPet handleAddPet={handleAddPet} handleDeletePet={handleDeletePet} pets={pets}/>} />
       </Routes>
     </>
