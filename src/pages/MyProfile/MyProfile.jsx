@@ -21,7 +21,7 @@ const MyProfile = () => {
     <div style={{marginTop: '200px'}}>
       <h1>This is your profile!</h1>
         <>
-          <p>{profile._id}{profile.name}</p>
+          <p>{profile.name}</p>
           {profile.pets?.map((pet, idx) => 
             <table key={idx}>
               <tr>
