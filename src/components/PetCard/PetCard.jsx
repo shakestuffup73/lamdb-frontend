@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import styles from './PetCard.module.css'
+import { Link } from 'react-router-dom';
 
-const PetCard = ({ pet, photo }) => {
+
+const PetCard = ({ pet, photo, handleDeletePet}) => {
 
   useEffect(() => {
     console.log('this is pet', pet);
@@ -29,6 +31,14 @@ const PetCard = ({ pet, photo }) => {
         <h2>{pet.petName}</h2>
         <h2>{pet.age}</h2>
         <h2>{pet.breed}</h2>
+      </div>
+      <div className="card-footer">
+        <button 
+          className="btn btn-sm btn-danger m-left"
+          onClick={() => handleDeletePet(pet._id) }
+        >
+          Delete Pet
+        </button>
       </div>
     </>
   )

@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react"
 import { Route, Routes, Link, useNavigate } from 'react-router-dom'
 import styles from './AddPet.module.css'
 import * as petService from '../../services/petService'
+import MyProfile from "../MyProfile/MyProfile"
 
 const AddPet = (props) => {
 
@@ -58,6 +59,12 @@ const AddPet = (props) => {
     evt.preventDefault()
     handleAddPet(formData, photoData.photo)
   }
+
+	const handleDeletePet = async id => {
+    const deletedPet = await petService.deleteOne(id)
+    setPets(pets.filter(pet => pet._id !== deletedPet._id))
+  }
+
 
   return ( 
     <>
@@ -205,6 +212,9 @@ const AddPet = (props) => {
 					>
 						Add Pet
 					</button>
+					<div style={{display:"none"}}>
+					<MyProfile handleDeletePet={handleDeletePet}/>
+					</div>
 				</div>
 			</form>
     </div>
