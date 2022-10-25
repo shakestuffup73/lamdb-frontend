@@ -15,13 +15,13 @@ const MyProfile = () => {
   // useEffect(() => {
   //   console.log('this is profile',profile);
   // }, [profile])
-
+  
   return (
     profile &&
-    <div style={{marginTop: '200px'}}>
+    <div style={{marginTop: '201px'}}>
       <h1>This is your profile!</h1>
         <>
-          <p>{profile._id}{profile.name}</p>
+          <p>{profile.name}</p>
           {profile.pets?.map((pet, idx) => 
             <table key={idx}>
               <tr>
