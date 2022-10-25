@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import * as profileService from '../../services/profileService'
+import PetCard from '../../components/PetCard/PetCard.jsx'
 
 const MyProfile = () => {
   const [profile, setProfile] = useState([])
@@ -23,16 +24,10 @@ const MyProfile = () => {
         <>
           <p>{profile.name}</p>
           {profile.pets?.map((pet, idx) => 
-            <table key={idx}>
-              <tr>
-                <td>{pet.petName}</td>
-                <td>{pet.age}</td>
-                <td>{pet.breed}</td>
-                <td>
-                  <button>{pet.petName}'s Profile</button>
-                </td>
-              </tr>
-            </table>
+            <div key={idx}>
+              <PetCard pet={pet}  />
+              <button>{pet.petName}'s Profile</button>
+            </div>
           )}
         </>
     </div>
