@@ -52,6 +52,7 @@ const App = () => {
 	const handleDeletePet = async id => {
     const deletedPet = await petService.deleteOne(id)
     setPets(pets.filter(pet => pet._id !== deletedPet._id))
+    navigate('/my-profile')
   }
 
   const handleLogout = () => {
@@ -93,7 +94,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-        <Route path='/petDetails' element={<PetDetails pets={pets} handleDeletePet={handleDeletePet} />} />
+        <Route path='/petDetails/:id' element={<PetDetails pets={pets} handleDeletePet={handleDeletePet} />} />
         <Route path='/addVet' element={<AddVet />} />
         <Route path='/addPet' element={<AddPet handleAddPet={handleAddPet} handleDeletePet={handleDeletePet} pets={pets}/>} />
       </Routes>

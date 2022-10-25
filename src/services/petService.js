@@ -37,6 +37,7 @@ async function deleteOne(id) {
 }
 
 const show = async (id) => {
+  console.log("this is the show id", id);
   try {
     // GET http://localhost:3001/api/pets/:id
     const res = await fetch(`${BASE_URL}/${id}`, {
