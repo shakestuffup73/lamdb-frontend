@@ -15,7 +15,32 @@ async function create(vet) {
 }
 
 
+async function deleteOne(id) {
+  const res = await fetch(`${BASE_URL}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    }
+  })
+  return res.json()
+}
+
+const show = async (id) => {
+  console.log("this is the show id", id);
+  try {
+    // GET http://localhost:3001/api/vets/:id
+    const res = await fetch(`${BASE_URL}/${id}`, {
+      headers: { "Authorization": `Bearer ${tokenService.getToken()}`}
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 
 export {
-  create
+  create,
+  show,
+  deleteOne
 }
