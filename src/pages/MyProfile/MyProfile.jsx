@@ -25,7 +25,7 @@ const MyProfile = (props) => {
           {profile.pets?.map((pet) => 
             <div key={pet._id}>
               <PetCard pet={pet} />
-              <Link to='/petDetails' element={<PetDetails pet={pet} handleDeletePet={props.handleDeletePet}/>}>{pet.petName}'s Profile</Link>
+              <Link to={`/petDetails/${pet._id}`} element={<PetDetails pet={pet} handleDeletePet={props.handleDeletePet}/>}>{pet.petName}'s Profile</Link>
             </div>
           )}
         </>

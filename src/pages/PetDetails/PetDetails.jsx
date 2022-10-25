@@ -9,7 +9,7 @@ import styles from "./PetDetails.module.css"
 // services
 import * as petService from '../../services/petService'
 
-const PetDetails = ({ pet, handleDeletePet }) => {
+const PetDetails = ({ handleDeletePet }) => {
   const { id } = useParams()
   const [petDetails, setPetDetails] = useState([])
 
@@ -26,9 +26,9 @@ const PetDetails = ({ pet, handleDeletePet }) => {
   return (
     <main>
       <h1 style={{marginTop: '200px'}}>This is the Pet Details page</h1>
-        <h1>{pet?.petName}</h1>
+        <h1>{petDetails?.petName}</h1>
         <Link to={`/pets/${id}/edit`} state={petDetails}>Edit</Link>
-        <button onClick={() => handleDeletePet(pet._id)}>DELETE PET</button>
+        <button onClick={() => handleDeletePet(id)}>DELETE PET</button>
     </main>
   )
 }
