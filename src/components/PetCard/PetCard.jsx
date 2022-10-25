@@ -8,11 +8,11 @@ const PetCard = ({ pet }) => {
           ? pet.photo
           : `So sad, no pet photo`
       }
-      alt="photo of your pet"
+      alt="your pet"
       className="card-img-top"
       style={{ width: "640px" }}
       />
-      <button></button>
+      <button>Update Pet Photo</button>
     </div>
   )
 }
