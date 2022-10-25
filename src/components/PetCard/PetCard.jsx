@@ -31,12 +31,6 @@ const PetCard = ({ pet, photo, handleDeletePet}) => {
         <h2>{pet.breed}</h2>
       </div>
       <div className="card-footer">
-        <button 
-          className="btn btn-sm btn-danger m-left"
-          onClick={() => handleDeletePet(pet._id) }
-        >
-          Delete Pet
-        </button>
       </div>
     </>
   )

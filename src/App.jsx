@@ -9,6 +9,7 @@ import Landing from './pages/Landing/Landing'
 import MyProfile from './pages/MyProfile/MyProfile'
 import AddPet from './pages/AddPet/AddPet'
 import AddVet from './pages/AddVet/AddVet'
+import PetDetails from './pages/PetDetails/PetDetails'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 
 // components
@@ -30,7 +31,7 @@ const App = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    console.log('this is pets',pets);
+    console.log('this is pets', pets);
   }, [pets])
 
   const handleAddPet = async (newPetData, photo) => {
@@ -80,7 +81,7 @@ const App = () => {
           path="/my-profile"
           element={
             <ProtectedRoute user={user}>
-              <MyProfile handleAddPet={handleAddPet} handleDeletePet={handleDeletePet} pets={pets}/> 
+              <MyProfile handleAddPet={handleAddPet} handleDeletePet={handleDeletePet} pets={pets} /> 
             </ProtectedRoute>
           }
         />
@@ -92,6 +93,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route path='/petDetails' element={<PetDetails pets={pets} handleDeletePet={handleDeletePet} />} />
         <Route path='/addVet' element={<AddVet />} />
         <Route path='/addPet' element={<AddPet handleAddPet={handleAddPet} handleDeletePet={handleDeletePet} pets={pets}/>} />
       </Routes>
