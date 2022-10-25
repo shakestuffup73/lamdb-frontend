@@ -11,6 +11,7 @@ import AddPet from './pages/AddPet/AddPet'
 import AddVet from './pages/AddVet/AddVet'
 import PetDetails from './pages/PetDetails/PetDetails'
 import VetDetails from './pages/VetDetails/VetDetails'
+import EditPet from './pages/EditPet/EditPet'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 
 // components
@@ -49,6 +50,18 @@ const App = () => {
     navigate('/my-profile')
   }
 
+  const handleUpdatePet = async (updatedPet, photo) => {
+    const updatedPuppy = await petService.update(updatedPet)
+    if (photo) {
+      updatedPuppy.photo = await petPhotoHelper(photo, updatedPet._id)
+    }
+    const newPetsArray = pets.map(puppy => 
+      puppy._id === updatedPuppy._id ? updatedPuppy : puppy
+    )
+    setPets(newPetsArray)
+		navigate('/my-profile')
+  }
+
   const handleAddVet = async (newVetData) => {
     const newVet = await vetService.create(newVetData)
       setVets([...vets, newVet])
@@ -84,10 +97,6 @@ const App = () => {
     setUser(authService.getUser())
   }
 
-
-
-
-
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -117,10 +126,11 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route path='/addPet' element={<AddPet handleAddPet={handleAddPet} handleDeletePet={handleDeletePet} pets={pets}/>} />
         <Route path='/petDetails/:id' element={<PetDetails pets={pets} handleDeletePet={handleDeletePet} />} />
+        <Route path='//pets/:id/edit' element={<EditPet pets={pets} handleUpdatePet={handleUpdatePet}/>} />
         <Route path='/addVet' element={<AddVet handleAddVet={handleAddVet} pets={pets} vets={vets} />} />
         <Route path='/vetDetails/:id' element={<VetDetails pets={pets} vets={vets} handleDeleteVet={handleDeleteVet} />} />
-        <Route path='/addPet' element={<AddPet handleAddPet={handleAddPet} handleDeletePet={handleDeletePet} pets={pets}/>} />
       </Routes>
     </>
   )
