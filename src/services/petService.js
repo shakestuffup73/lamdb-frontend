@@ -36,9 +36,21 @@ async function deleteOne(id) {
   return res.json()
 }
 
+const show = async (id) => {
+  try {
+    // GET http://localhost:3001/api/pets/:id
+    const res = await fetch(`${BASE_URL}/${id}`, {
+      headers: { "Authorization": `Bearer ${tokenService.getToken()}`}
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 export {
   create,
   addPhoto,
-  deleteOne
+  deleteOne,
+  show,
 }

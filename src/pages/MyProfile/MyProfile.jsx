@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
+import { Link } from "react-router-dom"
 import * as profileService from '../../services/profileService'
 import PetCard from '../../components/PetCard/PetCard.jsx'
+import PetDetails from '../PetDetails/PetDetails'
 
 const MyProfile = (props) => {
   const [profile, setProfile] = useState([])
@@ -12,22 +14,18 @@ const MyProfile = (props) => {
     }
     fetchProfile()
   }, [])
-
-  // useEffect(() => {
-  //   console.log('this is profile',profile);
-  // }, [profile])
   
   return (
     profile &&
-    <div style={{marginTop: '201px'}}>
+    <div style={{marginTop: '200px'}}>
       
       <h1>This is your profile!</h1>
         <>
           <p>{profile.name}</p>
-          {profile.pets?.map((pet, idx) => 
-            <div key={idx}>
-              <PetCard pet={pet} handleDeletePet={props.handleDeletePet} />
-              <button>{pet.petName}'s Profile</button>
+          {profile.pets?.map((pet) => 
+            <div key={pet._id}>
+              <PetCard pet={pet} />
+              <Link to='/petDetails' element={<PetDetails pet={pet} handleDeletePet={props.handleDeletePet}/>}>{pet.petName}'s Profile</Link>
             </div>
           )}
         </>
