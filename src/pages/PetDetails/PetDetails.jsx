@@ -39,7 +39,7 @@ const PetDetails = ({ vet, handleDeletePet }) => {
         {/* <h3>{petDetails?.color}</h3> */}
       </div>
       <div className={styles.linksDiv}>
-        <Link to={`/pets/${id}/edit`}>Edit Pet Details</Link>
+        <Link to={`/pets/${id}/edit`} state={{petDetails}}>Edit Pet Details</Link>
         <Link to={`/vetDetails/${id}`}>View Vet Records</Link>
       </div>
       <div className={styles.btnDiv}>

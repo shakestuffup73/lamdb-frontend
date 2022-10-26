@@ -8,11 +8,11 @@ import styles from "./MyProfile.module.css"
 const MyProfile = (props) => {
 
   return (
-    props.profile &&
+    props.pets.length &&
     <>
       <div className={styles.displayCards}>
       {/* <h1>Welcome to your profile, {props.profile.name}</h1> */}
-        {props.profile.pets?.map((pet) =>
+        {props.pets?.map((pet) =>
         <div key={pet._id} className={styles.petContainer}>
           <PetCard pet={pet} />
           <Link to={`/petDetails/${pet._id}`}>{pet.petName}'s Profile</Link>
