@@ -30,16 +30,11 @@ import './App.css'
 const App = () => {
   // setting state
   const [user, setUser] = useState(authService.getUser())
-
   const [pets, setPets] = useState([])
-
   const [vets, setVets] = useState([])
-
   const navigate = useNavigate()
-
   const [profile, setProfile] = useState([])
 
-  
   // use effects
   
   useEffect(() => {
@@ -56,11 +51,12 @@ const App = () => {
 
   // functions for pet and vet
   const handleAddPet = async (newPetData, photo) => {
-    const newPet = await petService.create(newPetData)
+    const newData = await petService.create(newPetData)
     if (photo) {
-      newPet.photo = await petPhotoHelper(photo, newPet._id)
+      newData.pet.photo = await petPhotoHelper(photo, newData.pet._id)
     }
-    setPets([...pets, newPet])
+    // setPets([...pets, newPet])
+    setProfile(newData.updatedProfile)
     navigate('/my-profile')
   }
 
@@ -142,7 +138,7 @@ const App = () => {
         />
         <Route path='/addPet' element={<AddPet handleAddPet={handleAddPet} handleDeletePet={handleDeletePet} pets={pets}/>} />
         <Route path='/petDetails/:id' element={<PetDetails profile={profile} pets={pets} handleDeletePet={handleDeletePet} />} />
-        <Route path='//pets/:id/edit' element={<EditPet pets={pets} handleUpdatePet={handleUpdatePet}/>} />
+        <Route path='/pets/:id/edit' element={<EditPet pets={pets} handleUpdatePet={handleUpdatePet}/>} />
         <Route path='/addVet' element={<AddVet handleAddVet={handleAddVet} pets={pets} vets={vets} />} />
         <Route path='/vetDetails/:id' element={<VetDetails pets={pets} vets={vets} handleDeleteVet={handleDeleteVet} />} />
       </Routes>

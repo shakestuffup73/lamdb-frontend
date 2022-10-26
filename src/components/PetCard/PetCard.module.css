@@ -1,10 +1,21 @@
-.container {
-  margin-top: 400px;
-  width: 70%;
-  max-width: 1600px;
+.cardDiv {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+}
+
+.cardDiv > img {
+  display: flex;
+  width: 90%;
+  max-width: 1600px;
+  border: 4px solid #29335C;
+}
+
+.detailsDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: .8em;
 }
