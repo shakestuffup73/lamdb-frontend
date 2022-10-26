@@ -39,7 +39,7 @@ const AddVet = (props) => {
   return ( 
     <>
 		<div className={styles.addVetContainer}>
-    <h1 style={{marginTop: '200px'}}> Add a Vet Visit here!</h1>
+    <h1> Add a Vet Visit here!</h1>
     <form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
 				<div className="form-group mb-3">
 					<label htmlFor="name-input" className="form-label">
