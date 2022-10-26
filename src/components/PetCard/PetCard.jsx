@@ -13,23 +13,19 @@ const PetCard = ({ pet, photo}) => {
 
   return (
     <>
-      <div className={styles.container}>
-        <img src={
-          pet.photo
-            ? pet.photo
-            : `So sad, no pet photo`
-        }
-        alt="your pet"
-        className="card-img-top"
-        style={{ width: "640px" }}
-        />
-      </div>
-      <div className={styles.card}>
-        <h2>{pet.petName}</h2>
-        <h2>{pet.age}</h2>
-        <h2>{pet.breed}</h2>
-      </div>
-      <div className="card-footer">
+      <img src={
+        pet.photo
+          ? pet.photo
+          : `So sad, no pet photo`
+      }
+      alt="your pet"
+      className="card-img-top"
+      style={{ width: "240px" }}
+      />
+      <div>
+        <p>{pet.petName}</p>
+        <p>{pet.age}</p>
+        <p>{pet.breed}</p>
       </div>
     </>
   )

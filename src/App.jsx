@@ -22,6 +22,8 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import * as authService from './services/authService'
 import * as petService from './services/petService'
 import * as vetService from './services/vetService'
+import * as profileService from './services/profileService'
+
 // styles
 import './App.css'
 
@@ -32,10 +34,22 @@ const App = () => {
   const [pets, setPets] = useState([])
 
   const [vets, setVets] = useState([])
-  
+
   const navigate = useNavigate()
 
+  const [profile, setProfile] = useState([])
+
+  
   // use effects
+  
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const profileData = await profileService.getMyProfile()
+      setProfile(profileData)
+    }
+    fetchProfile()
+  }, [])
+
   useEffect(() => {
     console.log('this is pets', pets);
   }, [pets])
@@ -66,7 +80,7 @@ const App = () => {
     const newVet = await vetService.create(newVetData)
       setVets([...vets, newVet])
       navigate('/vetDetails/:id')
-    }
+  }
 
   const petPhotoHelper = async (photo, id) => {
     const photoData = new FormData()
@@ -114,7 +128,7 @@ const App = () => {
           path="/my-profile"
           element={
             <ProtectedRoute user={user}>
-              <MyProfile handleAddPet={handleAddPet} handleDeletePet={handleDeletePet} pets={pets} /> 
+              <MyProfile profile={profile} handleAddPet={handleAddPet} handleDeletePet={handleDeletePet} pets={pets} /> 
             </ProtectedRoute>
           }
         />
@@ -127,7 +141,7 @@ const App = () => {
           }
         />
         <Route path='/addPet' element={<AddPet handleAddPet={handleAddPet} handleDeletePet={handleDeletePet} pets={pets}/>} />
-        <Route path='/petDetails/:id' element={<PetDetails pets={pets} handleDeletePet={handleDeletePet} />} />
+        <Route path='/petDetails/:id' element={<PetDetails profile={profile} pets={pets} handleDeletePet={handleDeletePet} />} />
         <Route path='//pets/:id/edit' element={<EditPet pets={pets} handleUpdatePet={handleUpdatePet}/>} />
         <Route path='/addVet' element={<AddVet handleAddVet={handleAddVet} pets={pets} vets={vets} />} />
         <Route path='/vetDetails/:id' element={<VetDetails pets={pets} vets={vets} handleDeleteVet={handleDeleteVet} />} />
