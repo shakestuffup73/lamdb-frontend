@@ -9,10 +9,12 @@ import styles from "./PetDetails.module.css"
 // services
 import * as petService from '../../services/petService'
 
+
 const PetDetails = ({ vet, handleDeletePet }) => {
   const { id } = useParams()
 
   const [petDetails, setPetDetails] = useState([])
+
 
   useEffect(() => {
     const fetchPet = async () => {
@@ -21,6 +23,8 @@ const PetDetails = ({ vet, handleDeletePet }) => {
     }
     fetchPet()
   }, [id])
+
+
 
   return (
     <main>

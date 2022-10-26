@@ -54,6 +54,16 @@ const App = () => {
     console.log('this is pets', pets);
   }, [])
 
+  useEffect(() => {
+    const fetchVets = async () => {
+      const vetsData = await vetService.getVets()
+      setVets(vetsData)
+    }
+    fetchVets()
+    console.log('this is vets', vets);
+  }, [])
+
+
 
 
   // functions for pet and vet
@@ -64,6 +74,12 @@ const App = () => {
     }
     setPets([...pets, newPet])
     navigate('/my-profile')
+  }
+
+  const handleAddVet = async (newVetData) => {
+    const newVet = await vetService.create(newVetData)
+      setVets([...vets, newVet])
+      navigate('/vetDetails/:id')
   }
 
   const handleUpdatePet = async (updatedPet, photo) => {
@@ -78,11 +94,18 @@ const App = () => {
 		navigate('/my-profile')
   }
 
-  const handleAddVet = async (newVetData) => {
-    const newVet = await vetService.create(newVetData)
-      setVets([...vets, newVet])
-      navigate('/vetDetails/:id')
-  }
+  // const handleUpdateVet = async (updatedVet) => {
+  //   const updatedVetData = await vetService.update(updatedVet)
+  //   // if (photo) {
+  //   //   updatedPetData.photo = await petPhotoHelper(photo, updatedPet._id)
+  //   // }
+  //   const newVetsArray = vets.map(vet => 
+  //     vet._id === updatedVetData._id ? updatedVetData : vet
+  //   )
+  //   setVets(newVetsArray)
+	// 	navigate('/my-profile')
+  // }
+
 
   const petPhotoHelper = async (photo, id) => {
     const photoData = new FormData()
@@ -96,11 +119,12 @@ const App = () => {
     navigate('/my-profile')
   }
 
-  const handleDeleteVet = async id => {
-    const deletedVet = await vetService.deleteOne(id)
-    setVets(vets.filter(vet => vet._id !== deletedVet._id))
-    navigate('/petDetails/:id')
-  }
+  // const handleDeleteVet = async id => {
+  //   const deletedVet = await vetService.deleteOne(id)
+  //   setVets(vets.filter(vet => vet._id !== deletedVet._id))
+  //   navigate('/petDetails/:id')
+  // }
+
 
   // user login log out functions
   const handleLogout = () => {
@@ -143,10 +167,13 @@ const App = () => {
           }
         />
         <Route path='/addPet' element={<AddPet handleAddPet={handleAddPet} handleDeletePet={handleDeletePet} pets={pets}/>} />
+
         <Route path='/petDetails/:id' element={<PetDetails profile={profile} pets={pets} handleDeletePet={handleDeletePet} />} />
+        
         <Route path='/pets/:id/edit' element={<EditPet handleUpdatePet={handleUpdatePet}/>} />
         <Route path='/addVet' element={<AddVet handleAddVet={handleAddVet} pets={pets} vets={vets} />} />
-        <Route path='/vetDetails/:id' element={<VetDetails pets={pets} vets={vets} handleDeleteVet={handleDeleteVet} />} />
+        
+        <Route path='/vetDetails/:id' element={<VetDetails pets={pets} vets={vets}/>} />
       </Routes>
     </>
   )
