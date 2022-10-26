@@ -14,15 +14,15 @@ async function create(vet) {
   return res.json()
 }
 
-async function deleteOne(id) {
-  const res = await fetch(`${BASE_URL}/${id}`, {
-    method: 'DELETE',
-    headers: {
-      'Authorization': `Bearer ${tokenService.getToken()}`
-    }
-  })
-  return res.json()
-}
+// async function deleteOne(vetId) {
+//   const res = await fetch(`${BASE_URL}/${vetId}`, {
+//     method: 'DELETE',
+//     headers: {
+//       'Authorization': `Bearer ${tokenService.getToken()}`
+//     }
+//   })
+//   return res.json()
+// }
 
 const show = async (id) => {
   console.log("this is the show id", id);
@@ -37,8 +37,39 @@ const show = async (id) => {
   }
 }
 
+const getVets = async () => {
+  try {
+    const res = await fetch(`${BASE_URL}`, {
+      headers: { "Authorization": `Bearer ${tokenService.getToken()}`}
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+// const update = async (vetData) => {
+//   try {
+//     const res = await fetch(`${BASE_URL}/${vetData._id}`, {
+//       method: 'PUT',
+//       headers: {
+//         'Authorization': `Bearer ${tokenService.getToken()}`,
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify(vetData)
+//     })
+//     return res.json()
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }
+
+
+
+
+
 export {
   create,
-  show,
-  deleteOne
+  getVets,
+  show
 }

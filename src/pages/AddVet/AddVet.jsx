@@ -40,6 +40,12 @@ const AddVet = (props) => {
     <>
 		<div className={styles.addVetContainer}>
     <h1> Add a Vet Visit here!</h1>
+			<select name="pet" style={{width: "90px"}}>
+				{props.pets.map((pet) => { 
+					console.log('this is petName', pet.petName)
+				return <option key={pet._id} value={pet._id}>{pet.petName}</option>
+			})}
+  	</select>
     <form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
 		<div className={styles.vetFormFont}>
 				<div className="form-group mb-3">
