@@ -47,6 +47,17 @@ const show = async (id) => {
   }
 }
 
+const getPets = async () => {
+  try {
+    const res = await fetch(`${BASE_URL}`, {
+      headers: { "Authorization": `Bearer ${tokenService.getToken()}`}
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 const update = async (petData) => {
   try {
     const res = await fetch(`${BASE_URL}/${petData._id}`, {
@@ -63,10 +74,12 @@ const update = async (petData) => {
   }
 }
 
+
 export {
   create,
   addPhoto,
   deleteOne,
   show,
   update,
+  getPets
 }

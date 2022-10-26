@@ -1,12 +1,22 @@
-import { useState } from "react"
-import { useLocation } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { useLocation, useParams } from "react-router-dom"
+
+import * as petService from '../../services/petService'
 
 const EditPet = (props) => {
-  const { state } = useLocation()
+  const { id } = useParams()
 
-  const [form, setForm] = useState(state)
+  const [form, setForm] = useState({})
 
 	const [updatePhotoData, setUpdatePhotoData] = useState({})
+
+	useEffect(() => {
+    const fetchPet = async () => {
+      const data = await petService.show(id)
+      setForm(data)
+    }
+    fetchPet()
+  }, [id])
 
   const handleChange = ({ target }) => {
     setForm({ ...form, [target.name]: target.value })
@@ -22,7 +32,7 @@ const EditPet = (props) => {
 	}
 
   return (
-    <main style={{marginTop: '200px'}}>
+			<main style={{marginTop: '200px'}}>
       <form onSubmit={handleSubmit}>
         <h1>Update Pet Details</h1>
         <div className="form-group mb-3">
@@ -37,7 +47,7 @@ const EditPet = (props) => {
             value={form.petName}
             onChange={handleChange}
 						required
-					/>
+						/>
 				</div>
 				<div className="form-group mb-3">
 					<label htmlFor="species-input" className="form-label">
@@ -51,7 +61,7 @@ const EditPet = (props) => {
             value={form.species}
             onChange={handleChange}
 						required
-					/>
+						/>
 				</div>
 				<div className="form-group mb-4">
 					<label htmlFor="color-input" className="form-label">
@@ -77,7 +87,7 @@ const EditPet = (props) => {
 						name="breed"
             value={form.breed}
             onChange={handleChange}
-					/>
+						/>
 				</div>
         <div className="form-group mb-4">
 					<label htmlFor="age-input" className="form-label">
@@ -103,7 +113,7 @@ const EditPet = (props) => {
 						name="weight"
             value={form.weight}
             onChange={handleChange}
-					/>
+						/>
 				</div>
         <div className="form-group mb-4">
 					<label htmlFor="behaviorNotes-input" className="form-label">
@@ -116,7 +126,7 @@ const EditPet = (props) => {
 						name="behaviorNotes"
             value={form.behaviorNotes}
             onChange={handleChange}
-					/>
+						/>
 				</div>
         <div className="form-group mb-4">
 					<label htmlFor="allergies-input" className="form-label">
@@ -129,7 +139,7 @@ const EditPet = (props) => {
 						name="allergies"
             value={form.allergies}
             onChange={handleChange}
-					/>
+						/>
 				</div>
         <div className="form-group mb-4">
 					<label htmlFor="microchipLink-input" className="form-label">
@@ -142,7 +152,7 @@ const EditPet = (props) => {
 						name="microchipLink"
             value={form.microchipLink}
             onChange={handleChange}
-					/>
+						/>
 				</div>
 				<div className="form-group mb-4">
 					<label htmlFor="photo-upload" className="form-label">
@@ -154,19 +164,19 @@ const EditPet = (props) => {
 						id="photo-upload"
 						name="photo"
 						onChange={handleUpdatePhoto}
-					/>
+						/>
 				</div>
 				<div className="d-grid">
 					<button type="submit">Update Pet</button>
 				</div>
       </form>
     </main>
-  )
-}
-
-export default EditPet;
-
-
+		)
+	}
+	
+	export default EditPet;
+	
+	
 
 
 // return (  
