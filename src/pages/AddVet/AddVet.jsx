@@ -41,10 +41,12 @@ const AddVet = (props) => {
 		<div className={styles.addVetContainer}>
     <h1> Add a Vet Visit here!</h1>
     <form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
+		<div className={styles.vetFormFont}>
 				<div className="form-group mb-3">
 					<label htmlFor="name-input" className="form-label">
 						Vet Name: (required)
 					</label>
+					<br></br>
 					<input 
 						type="text"
 						className="form-control"
@@ -59,6 +61,7 @@ const AddVet = (props) => {
 					<label htmlFor="contact-input" className="form-label">
 						Vet Contact Info: (required)
 					</label>
+					<br></br>
 					<input 
 						type="text"
 						className="form-control"
@@ -73,6 +76,7 @@ const AddVet = (props) => {
 					<label htmlFor="description-input" className="form-label">
 						Vet Visit Description:
 					</label>
+					<br></br>
 					<input 
 						type="text"
 						className="form-control"
@@ -86,6 +90,7 @@ const AddVet = (props) => {
 					<label htmlFor="diagnosis-input" className="form-label">
 						Diagnosis:
 					</label>
+					<br></br>
 					<input 
 						type="text"
 						className="form-control"
@@ -99,6 +104,7 @@ const AddVet = (props) => {
 					<label htmlFor="results-input" className="form-label">
 						Results:
 					</label>
+					<br></br>
 					<input 
 						type="text"
 						className="form-control"
@@ -112,6 +118,7 @@ const AddVet = (props) => {
 					<label htmlFor="medications-input" className="form-label">
 						Medications:
 					</label>
+					<br></br>
 					<input 
 						type="text"
 						className="form-control"
@@ -125,6 +132,7 @@ const AddVet = (props) => {
 					<label htmlFor="weight-input" className="form-label">
 						Pet Weight:
 					</label>
+					<br></br>
 					<input 
 						type="text"
 						className="form-control"
@@ -138,6 +146,7 @@ const AddVet = (props) => {
 					<label htmlFor="cost-input" className="form-label">
 						Vet Visit Cost:
 					</label>
+					<br></br>
 					<input 
 						type="text"
 						className="form-control"
@@ -151,6 +160,7 @@ const AddVet = (props) => {
 					<label htmlFor="appointment-input" className="form-label">
 						Follow-Up Appointment:
 					</label>
+					<br></br>
 					<input 
 						type="text"
 						className="form-control"
@@ -164,6 +174,7 @@ const AddVet = (props) => {
 					<label htmlFor="rabies-input" className="form-label">
 						Rabies Follow-Up:
 					</label>
+					<br></br>
 					<input 
 						type="text"
 						className="form-control"
@@ -175,6 +186,7 @@ const AddVet = (props) => {
 				</div>
 			
 				<div className="d-grid">
+				<br></br>
 					<button
 						type="submit"
 						className="btn btn-primary btn-fluid"
@@ -183,6 +195,7 @@ const AddVet = (props) => {
 						Add Vet Visit
 					</button>
 				</div>
+			</div>
 			</form>
 			</div>
 		</>
