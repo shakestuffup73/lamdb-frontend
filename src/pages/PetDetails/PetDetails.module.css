@@ -1,0 +1,43 @@
+.titleDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.detailsDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: .6em;
+  line-height: .3em;
+}
+
+.btnDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.deleteBtn {
+  background-color: #86BBD8;
+  border-radius: 90px;
+  padding: 10px;
+  font-family: 'Lexend Deca';
+  height: 3rem;
+  padding: 10px;
+  margin: 20px;
+  color: whitesmoke;
+  border-radius: 80px;
+}
+
+.linksDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
