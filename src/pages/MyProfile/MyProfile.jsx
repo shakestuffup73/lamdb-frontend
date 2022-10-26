@@ -1,8 +1,5 @@
-import { useState, useEffect } from 'react'
 import { Link } from "react-router-dom"
-import * as profileService from '../../services/profileService'
 import PetCard from '../../components/PetCard/PetCard.jsx'
-import PetDetails from '../PetDetails/PetDetails'
 import styles from "./MyProfile.module.css"
 
 const MyProfile = (props) => {
@@ -16,7 +13,6 @@ const MyProfile = (props) => {
       <Link to="/changePassword" className={styles.navUL}>Change Account Password</Link>
     </div>
       <div className={styles.displayCards}>
-      {/* <h1>Welcome to your profile, {props.profile.name}</h1> */}
         {props.pets?.map((pet) =>
         <div key={pet._id} className={styles.petContainer}>
           <PetCard pet={pet} />
