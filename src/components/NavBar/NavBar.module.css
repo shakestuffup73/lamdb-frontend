@@ -8,7 +8,7 @@
   position: fixed; 
   padding: 15px 21px;
   align-items: center;
-  background: darkcyan;
+  background: #F3DFC1;
   border-bottom: 1px solid rgb(200, 200, 200);
 }
 
@@ -19,6 +19,7 @@
   padding: 10px;
   gap: 20px;
   text-decoration: none;
+  font-size: 20px;
 }
 
 .navUl > li {
@@ -27,4 +28,8 @@
 
 .navLink {
   text-decoration: none;
+  color: #C97B84;
 }
+
+/* #F3DFC1
+#C97B84 */
