@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react"
-
+import styles from './AddVet.module.css'
 
 const AddVet = (props) => {
 
@@ -38,6 +38,7 @@ const AddVet = (props) => {
     
   return ( 
     <>
+		<div className={styles.addVetContainer}>
     <h1 style={{marginTop: '200px'}}> Add a Vet Visit here!</h1>
     <form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
 				<div className="form-group mb-3">
@@ -183,6 +184,7 @@ const AddVet = (props) => {
 					</button>
 				</div>
 			</form>
+			</div>
 		</>
   );
 }
