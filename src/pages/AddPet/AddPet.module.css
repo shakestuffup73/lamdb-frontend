@@ -1,5 +1,28 @@
 .titleDiv {
   margin-top: 120px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: 'Lexend Deca', sans-serif;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.formContainer {
+  color: #C97B84;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.petFormFont {
+  font-size: 18px;
+  color: #C97B84;
+}
+
+button {
+  background-color: #86BBD8;
+  border-radius: 90px;
+  padding: 10px;
   color: black;
 }
