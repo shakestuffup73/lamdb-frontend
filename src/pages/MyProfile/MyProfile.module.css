@@ -1,11 +1,21 @@
+.displayCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
 .petContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
   align-items: center;
-  border: 2px solid black;
-  margin-top: 80px;
-  padding: 20px;
+  border: 4px solid  #C97B84;
+  color: #29335C;
+  background-color: whitesmoke;
+  margin-top: 0px;
+  padding: 6px;
   margin-left: 20px;
-  max-width: 200px;
+  max-width: 240px;
+  font-size: .6em;
 }
+

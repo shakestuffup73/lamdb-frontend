@@ -9,14 +9,17 @@ const MyProfile = (props) => {
 
   return (
     props.profile &&
-      <>
+    <>
+      <div className={styles.displayCards}>
       {/* <h1>Welcome to your profile, {props.profile.name}</h1> */}
-      {props.profile.pets?.map((pet) =>
-      <div className={styles.petContainer}>
-        <PetCard pet={pet} />
-        <Link to={`/petDetails/${pet._id}`} element={<PetDetails pet={pet} handleDeletePet={props.handleDeletePet}/>}>{pet.petName}'s Profile</Link>
-      </div> 
-      )}
+        {props.profile.pets?.map((pet) =>
+        <div key={pet._id} className={styles.petContainer}>
+          <PetCard pet={pet} />
+          <Link to={`/petDetails/${pet._id}`}>{pet.petName}'s Profile</Link>
+          {/* <PetDetails pet={pet} handleDeletePet={props.handleDeletePet}/> */}
+        </div> 
+        )}
+      </div>
     </>
   )
 }
