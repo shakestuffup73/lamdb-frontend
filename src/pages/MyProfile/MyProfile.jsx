@@ -21,7 +21,6 @@ const MyProfile = (props) => {
         </div> 
         )}
       </div>
-      <ChangePassword />
     </>
   )
 }
