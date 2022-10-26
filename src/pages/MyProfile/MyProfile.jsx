@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom"
 import PetCard from '../../components/PetCard/PetCard.jsx'
 import styles from "./MyProfile.module.css"
-import ChangePassword from '../ChangePassword/ChangePassword'
 
 const MyProfile = (props) => {
 
   return (
-    props.pets.length &&
+    props.pets?.length && 
     <>
     <div className={styles.displayWelcome}>
       <h2>Welcome, {props.profile.name} </h2>

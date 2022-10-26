@@ -54,14 +54,14 @@ const App = () => {
     console.log('this is pets', pets);
   }, [])
 
-  useEffect(() => {
-    const fetchVets = async () => {
-      const vetsData = await vetService.getVets()
-      setVets(vetsData)
-    }
-    fetchVets()
-    console.log('this is vets', vets);
-  }, [])
+  // useEffect(() => {
+  //   const fetchVets = async () => {
+  //     const vetsData = await vetService.getVets()
+  //     setVets(vetsData)
+  //   }
+  //   fetchVets()
+  //   console.log('this is vets', vets);
+  // }, [])
 
 
 
@@ -79,7 +79,7 @@ const App = () => {
   const handleAddVet = async (newVetData) => {
     const newVet = await vetService.create(newVetData)
       setVets([...vets, newVet])
-      navigate('/vetDetails/:id')
+      navigate(`/vetDetails/${newVet._id}`)
   }
 
   const handleUpdatePet = async (updatedPet, photo) => {
