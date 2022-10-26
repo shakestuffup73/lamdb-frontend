@@ -32,14 +32,14 @@ const PetDetails = ({ vet, handleDeletePet }) => {
         <h1>{petDetails?.petName}'s Profile</h1>
       </div>
       <div className={styles.detailsDiv}>
-        <h3>{petDetails.species}</h3>
-        <h3>{petDetails.color}</h3>
-        <h3>{petDetails.breed}</h3>
-        <h3>{petDetails.age}</h3>
-        <h3>{petDetails.weight}</h3>
-        <h3>{petDetails.behaviorNotes}</h3>
-        <h3>{petDetails.allergies}</h3>
-        <h3>{petDetails.microchipLink}</h3>
+        <h4>Species: {petDetails.species}</h4>
+        <h4>Color: {petDetails.color}</h4>
+        <h4>Breed: {petDetails.breed}</h4>
+        <h4>Age: {petDetails.age}</h4>
+        <h4>Weight: {petDetails.weight}</h4>
+        <h4>Behavior Notes: {petDetails.behaviorNotes}</h4>
+        <h3>Allergies: {petDetails.allergies}</h3>
+        <h3>Microchip Link: {petDetails.microchipLink}</h3>
         {/* <h3>{petDetails?.color}</h3> */}
       </div>
       <div className={styles.linksDiv}>
