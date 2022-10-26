@@ -1,0 +1,15 @@
+.addVetContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+body {
+  margin-top: 100px;;
+  background-color: #29335C;
+  color: white;
+  font-size: 30px;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
