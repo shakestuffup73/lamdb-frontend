@@ -13,6 +13,7 @@ const MyProfile = (props) => {
     <div className={styles.displayWelcome}>
       <h2>Welcome, {props.profile.name} </h2>
       <img src={`${props.profile.photo}`} alt="profile upload" style={{height: '90px', marginTop: '0px'}} />
+      <Link to="/changePassword" className={styles.navUL}>Change Account Password</Link>
     </div>
       <div className={styles.displayCards}>
       {/* <h1>Welcome to your profile, {props.profile.name}</h1> */}
