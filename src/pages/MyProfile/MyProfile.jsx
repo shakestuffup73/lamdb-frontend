@@ -4,6 +4,7 @@ import * as profileService from '../../services/profileService'
 import PetCard from '../../components/PetCard/PetCard.jsx'
 import PetDetails from '../PetDetails/PetDetails'
 import styles from "./MyProfile.module.css"
+import ChangePassword from '../ChangePassword/ChangePassword'
 
 const MyProfile = (props) => {
 
@@ -24,6 +25,7 @@ const MyProfile = (props) => {
         </div> 
         )}
       </div>
+      <ChangePassword />
     </>
   )
 }

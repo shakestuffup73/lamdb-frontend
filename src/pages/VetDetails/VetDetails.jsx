@@ -21,14 +21,13 @@ const VetDetails = () => {
     }
     fetchVet()
   }, [id])
-  // if (!blog) return <Loading />
 
   return (
     <main style={{marginTop: '200px'}}>
       <article>
         <header>
           <h1>Hi this is the vet records page!</h1>
-          <h3>{vetDetails?.name}</h3>
+          {/* <h3>{vetDetails?.name}</h3>
           <h3>{vetDetails.contact}</h3>
           <h3>{vetDetails.description}</h3>
           <h3>{vetDetails.diagnosis}</h3>
@@ -37,7 +36,7 @@ const VetDetails = () => {
           <h3>{vetDetails.weight}</h3>
           <h3>{vetDetails.cost}</h3>
           <h3>{vetDetails.appointment}</h3>
-          <h3>{vetDetails.rabies}</h3>
+          <h3>{vetDetails.rabies}</h3> */}
         </header>
       </article>
     </main>
