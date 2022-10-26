@@ -14,7 +14,6 @@ async function create(vet) {
   return res.json()
 }
 
-
 async function deleteOne(id) {
   const res = await fetch(`${BASE_URL}/${id}`, {
     method: 'DELETE',
@@ -37,7 +36,6 @@ const show = async (id) => {
     console.log(error)
   }
 }
-
 
 export {
   create,
