@@ -19,21 +19,25 @@ const EmergencyContactDetails = ({ emergencyContact, handleDeleteEmergencyContac
   console.log('this is contact in emergencyContactDetails', contact);
   
   return (
-    contact?.emergencyContact?.length &&
+    <>
     <main>
       <div>
-        <h1>Emergency Contact</h1>
-        {contact.emergencyContact.map(contact => 
-        <div key={contact._id}>
-          <h1>{contact?.name}</h1>
-          <h1>{contact?.phoneNumber}</h1>
-          <h1>{contact?.email}</h1>
-          <button onClick={() => handleDeleteEmergencyContact(id)}>Delete Contact</button>
-        </div>
-        )}
+        <h1>Emergency Contacts</h1>
+        {contact.emergencyContact.length
+          ? contact.emergencyContact.map(contact => 
+          <div key={contact._id}>
+            <h1>{contact?.name}</h1>
+            <h1>{contact?.phoneNumber}</h1>
+            <h1>{contact?.email}</h1>
+            <button onClick={() => handleDeleteEmergencyContact(id)}>Delete Contact</button>
+          </div>
+          )
+          : <p>No Emergency Contacts Added Yet</p>
+        }
       </div>
       <Link to={`/emergency-contact`} state={id}>Add Emergency Contact</Link>
     </main>
+    </>
   )
 }
 

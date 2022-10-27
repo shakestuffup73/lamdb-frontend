@@ -1,6 +1,26 @@
+import { useParams, Link } from "react-router-dom"
+import { useEffect, useState } from 'react'
+import * as vetService from '../../services/vetService'
+
 import VetRecordCard from "../../components/VetRecordCard/VetRecordCard";
 
 const PetRecords = ({ vets }) => {
+  const { id } = useParams()
+
+  console.log('this is vets on PetRecords view', vets)
+
+  const [record, setRecord] = useState([])
+  
+  useEffect(() => {
+    const fetchRecord = async () => {
+      const data = await vetService.show(id)
+      setRecord(data)
+    }
+    fetchRecord()
+  }, [id])
+  
+  console.log('this is record on petRecords', record)
+
   return ( 
     vets?.length &&
     <main>
