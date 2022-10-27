@@ -10,6 +10,11 @@ This app will:
 
 We hope you enjoy this app! 
 
+## Contributors:
+- Amanda Stern
+- Lily Howlader
+- Maddie Stevenson
+  
 ### Here is a link to our app:
 
 ## Planning Materials:
@@ -34,3 +39,6 @@ We hope you enjoy this app!
 - Paw Print favicon used from Isabella Baillie on Giphy - https://giphy.com/stickers/paw-pawprint-print-fXWP44L91ioNZQSh2G
 
 ## Next Steps:
+- Implement community feature.
+- Add components for pet's preferred toys and foods.
+- Allow PDF uploads from vet visits.
