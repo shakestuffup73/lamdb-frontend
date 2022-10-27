@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react"
 import { useLocation } from 'react-router-dom'
 
+import styles from '../../pages/AddEmergencyContact/AddEmergencyContact.module.css'
+
 const AddEmergencyContact = (props) => {
 
   const [formData, setFormData] = useState({
@@ -28,13 +30,13 @@ const AddEmergencyContact = (props) => {
 
   return ( 
     <>
-      <div>
-        <h1>Add Emergency Contact Here</h1>
+      <div className={styles.addContactContainer}>
+        <h3>Add Emergency Contact Here</h3>
       </div>
       <div>
         <form autoComplete="off" ref={formElement} onSubmit={handleSubmit} >
-			<div>
-				<label htmlFor="name-input" className="form-label">
+			<div className={styles.contactForm}>
+				<label htmlFor="name-input">
 					Emergency Contact Name
 				</label>
         <input 
@@ -46,7 +48,7 @@ const AddEmergencyContact = (props) => {
 					onChange={handleChange}
 					required
 				/>
-        <label htmlFor="name-input" className="form-label">
+        <label htmlFor="name-input">
 					Phone Number
 				</label>
         <input 
@@ -58,7 +60,7 @@ const AddEmergencyContact = (props) => {
 					onChange={handleChange}
 					required
 				/>
-        <label htmlFor="name-input" className="form-label">
+        <label htmlFor="name-input">
 					Email
 				</label>
         <input 
@@ -71,15 +73,17 @@ const AddEmergencyContact = (props) => {
 					required
 				/>
       </div>
+			<div className={styles.btnDiv}>
       <button
           onClick={() => props.handleAddEmergencyContact}
 					type="submit"
-					className="btn btn-primary btn-fluid"
 					disabled={!validForm}
           onChange={handleChange}
+					className={styles.emergencyContactBtn}
 				>
 					Add Emergency Contact
 				</button>
+			</div>
       </form>
     </div>
     </>

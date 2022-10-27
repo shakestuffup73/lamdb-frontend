@@ -6,11 +6,7 @@ const MyProfile = (props) => {
 
   console.log('this is pets', props.pets)
   return (
-<<<<<<< HEAD
     props.pets?.length &&
-=======
-    props.pets?.length && 
->>>>>>> main
     <>
     <div className={styles.displayWelcome}>
       <h2>Welcome, {props.profile.name} </h2>
