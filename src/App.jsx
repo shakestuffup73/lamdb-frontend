@@ -92,10 +92,11 @@ const App = () => {
       navigate(`/vetDetails/${newVet._id}`)
   }
 
-  const handleAddEmergencyContact = async (newEmergencyContactData) => {
+  const handleAddEmergencyContact = async (pet, newEmergencyContactData) => {
+    console.log('this is emergencyContact in handleAddEmergency', emergencyContact)
     const newContact = await emergencyService.create(newEmergencyContactData)
       setEmergencyContact([...emergencyContact, newContact])
-      navigate('/pets/:id/emergency-contact/')
+      navigate(`/petDetails/${pet._id}/emergency-contact/${newContact._id}`)
   }
 
   const handleUpdatePet = async (updatedPet, photo) => {
@@ -191,7 +192,7 @@ const App = () => {
         
         <Route path='/vetDetails/:id' element={<VetDetails pets={pets} vets={vets}/>} />
         <Route path='/emergency-contact' element={<AddEmergencyContact pets={pets} vets={vets} handleAddEmergencyContact={handleAddEmergencyContact} />} />
-        <Route path='/emergency-contact/:id' element={<EmergencyContactDetails pets={pets} vets={vets}/>} />
+        <Route path='/:id/emergency-contact' element={<EmergencyContactDetails pets={pets} vets={vets}/>} />
       </Routes>
     </>
   )

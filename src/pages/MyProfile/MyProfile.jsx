@@ -5,6 +5,7 @@ import ChangePassword from '../ChangePassword/ChangePassword'
 
 const MyProfile = (props) => {
 
+  console.log('this is pets', props.pets)
   return (
     props.pets?.length &&
     <>
@@ -18,7 +19,8 @@ const MyProfile = (props) => {
         <div key={pet._id} className={styles.petContainer}>
           <PetCard pet={pet} />
           <Link to={`/petDetails/${pet._id}`}>{pet.petName}'s Profile</Link>
-          <Link to={`/emergency-contact/${pet._id}`}>View Emergency Contact</Link>
+
+          <Link to={`/${pet._id}/emergency-contact/${pet.emergencyContact}`}>View Emergency Contact</Link>
         </div> 
         )}
       </div>

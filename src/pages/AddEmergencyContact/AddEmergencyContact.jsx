@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react"
+import { useLocation } from 'react-router-dom'
 
 const AddEmergencyContact = (props) => {
+
   const [formData, setFormData] = useState({
     name: '',
     phoneNumber: '', 
@@ -70,9 +72,11 @@ const AddEmergencyContact = (props) => {
 				/>
       </div>
       <button
+          onClick={() => props.handleAddEmergencyContact}
 					type="submit"
 					className="btn btn-primary btn-fluid"
 					disabled={!validForm}
+          onChange={handleChange}
 				>
 					Add Emergency Contact
 				</button>

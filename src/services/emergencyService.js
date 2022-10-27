@@ -3,14 +3,14 @@ import * as tokenService from '../services/tokenService'
 const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/pets`
 
 
-async function create(pet) {
+async function create(emergencyContact, pet) {
   const res = await fetch(BASE_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${tokenService.getToken()}`
     },
-    body: JSON.stringify(pet)
+    body: JSON.stringify(emergencyContact)
   })
   return res.json()
 }

@@ -15,7 +15,6 @@ const PetDetails = ({ vet, handleDeletePet }) => {
 
   const [petDetails, setPetDetails] = useState([])
 
-
   useEffect(() => {
     const fetchPet = async () => {
       const data = await petService.show(id)
@@ -23,8 +22,6 @@ const PetDetails = ({ vet, handleDeletePet }) => {
     }
     fetchPet()
   }, [id])
-
-
 
   return (
     <main>
@@ -40,7 +37,6 @@ const PetDetails = ({ vet, handleDeletePet }) => {
         <h4>Behavior Notes: {petDetails.behaviorNotes}</h4>
         <h3>Allergies: {petDetails.allergies}</h3>
         <h3>Microchip Link: {petDetails.microchipLink}</h3>
-        {/* <h3>{petDetails?.color}</h3> */}
       </div>
       <div className={styles.linksDiv}>
         <Link to={`/pets/${id}/edit`}>Edit Pet Details</Link>
