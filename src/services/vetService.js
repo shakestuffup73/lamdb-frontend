@@ -47,11 +47,6 @@ const getVets = async () => {
   }
 }
 
-
-
-
-
-
 export {
   create,
   getVets,

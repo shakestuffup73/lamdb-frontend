@@ -5,9 +5,7 @@ import * as petService from '../../services/petService'
 
 const EditPet = (props) => {
   const { id } = useParams()
-
   const [form, setForm] = useState({})
-
 	const [updatePhotoData, setUpdatePhotoData] = useState({})
 
 	useEffect(() => {
@@ -35,7 +33,7 @@ const EditPet = (props) => {
 			<main style={{marginTop: '200px'}}>
       <form onSubmit={handleSubmit}>
         <h1>Update Pet Details</h1>
-        <div className="form-group mb-3">
+        <div>
         <label htmlFor="name-input" className="form-label">
 						Pet's Name (required)
 					</label>
@@ -49,7 +47,7 @@ const EditPet = (props) => {
 						required
 						/>
 				</div>
-				<div className="form-group mb-3">
+				<div>
 					<label htmlFor="species-input" className="form-label">
 						Species (required)
 					</label>
@@ -63,7 +61,7 @@ const EditPet = (props) => {
 						required
 						/>
 				</div>
-				<div className="form-group mb-4">
+				<div>
 					<label htmlFor="color-input" className="form-label">
 						Color
 					</label>
@@ -76,7 +74,7 @@ const EditPet = (props) => {
             onChange={handleChange}
 					/>
 				</div>
-        <div className="form-group mb-4">
+        <div>
 					<label htmlFor="breed-input" className="form-label">
 						Breed
 					</label>
@@ -89,7 +87,7 @@ const EditPet = (props) => {
             onChange={handleChange}
 						/>
 				</div>
-        <div className="form-group mb-4">
+        <div>
 					<label htmlFor="age-input" className="form-label">
 						Age
 					</label>
@@ -102,7 +100,7 @@ const EditPet = (props) => {
             onChange={handleChange}
 					/>
 				</div>
-        <div className="form-group mb-4">
+        <div>
 					<label htmlFor="weight-input" className="form-label">
 						Weight (in pounds)
 					</label>
@@ -115,7 +113,7 @@ const EditPet = (props) => {
             onChange={handleChange}
 						/>
 				</div>
-        <div className="form-group mb-4">
+        <div>
 					<label htmlFor="behaviorNotes-input" className="form-label">
 						Behavior Notes
 					</label>
@@ -128,7 +126,7 @@ const EditPet = (props) => {
             onChange={handleChange}
 						/>
 				</div>
-        <div className="form-group mb-4">
+        <div>
 					<label htmlFor="allergies-input" className="form-label">
 						Allergies
 					</label>
@@ -141,7 +139,7 @@ const EditPet = (props) => {
             onChange={handleChange}
 						/>
 				</div>
-        <div className="form-group mb-4">
+        <div>
 					<label htmlFor="microchipLink-input" className="form-label">
 						Microchip Link
 					</label>
@@ -154,7 +152,7 @@ const EditPet = (props) => {
             onChange={handleChange}
 						/>
 				</div>
-				<div className="form-group mb-4">
+				<div>
 					<label htmlFor="photo-upload" className="form-label">
           {updatePhotoData.photo ? "Replace existing photo" : "Add Photo"}
 					</label>
@@ -166,7 +164,7 @@ const EditPet = (props) => {
 						onChange={handleUpdatePhoto}
 						/>
 				</div>
-				<div className="d-grid">
+				<div>
 					<button type="submit">Update Pet</button>
 				</div>
       </form>
@@ -175,10 +173,3 @@ const EditPet = (props) => {
 	}
 	
 	export default EditPet;
-	
-	
-
-
-// return (  
-//   <h1 style={{marginTop: '200px'}}>This is my Edit Pet view</h1>
-// );

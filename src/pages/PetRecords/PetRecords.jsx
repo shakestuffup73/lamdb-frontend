@@ -7,8 +7,6 @@ import VetRecordCard from "../../components/VetRecordCard/VetRecordCard";
 const PetRecords = () => {
   const { id } = useParams()
 
-  // console.log('this is vets on PetRecords view', vets)
-
   const [records, setRecords] = useState([])
   
   useEffect(() => {
@@ -22,11 +20,8 @@ const PetRecords = () => {
   const handleDeleteVet = async id => {
     const deletedRecord = await vetService.deleteOne(id)
     setRecords(records.filter(record => record._id !== deletedRecord._id))
-    // navigate('/petDetails/:id')
   }
   
-  console.log('this is record on petRecords', records)
-
   return ( 
     records?.length &&
     <main styles={{marginTop: "200px"}}>

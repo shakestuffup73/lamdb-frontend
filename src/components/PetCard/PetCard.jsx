@@ -1,4 +1,3 @@
-
 import styles from './PetCard.module.css'
 
 const PetCard = ({ pet, photo}) => {

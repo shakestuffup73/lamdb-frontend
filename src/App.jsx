@@ -5,17 +5,17 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 // page components
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
+import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Landing from './pages/Landing/Landing'
 import MyProfile from './pages/MyProfile/MyProfile'
 import AddPet from './pages/AddPet/AddPet'
 import AddVet from './pages/AddVet/AddVet'
-import AddEmergencyContact from './pages/AddEmergencyContact/AddEmergencyContact'
 import PetDetails from './pages/PetDetails/PetDetails'
 import VetDetails from './pages/VetDetails/VetDetails'
+import EditPet from './pages/EditPet/EditPet'
 import PetRecords from './pages/PetRecords/PetRecords'
 import EmergencyContactDetails from './pages/EmergencyContactDetails/EmergencyContactDetails'
-import EditPet from './pages/EditPet/EditPet'
-import ChangePassword from './pages/ChangePassword/ChangePassword'
+import AddEmergencyContact from './pages/AddEmergencyContact/AddEmergencyContact'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -41,10 +41,7 @@ const App = () => {
   
   const navigate = useNavigate()
 
-  console.log('this is vets on App.jsx', vets);
-
   // use effects
-  
   useEffect(() => {
     const fetchProfile = async () => {
       const profileData = await profileService.getMyProfile()
@@ -68,7 +65,6 @@ const App = () => {
       setVets(vetsData)
     }
     fetchVets()
-    console.log('this is vets for getVets useEffect', vets);
   }, [])
 
   useEffect(() => {
@@ -96,8 +92,6 @@ const App = () => {
   }
 
   const handleAddEmergencyContact = async (petId, newEmergencyContactData) => {
-    console.log('this is emergencyContact in handleAddEmergency', emergencyContact)
-    console.log('this is emergency petId', petId);
     const newContact = await emergencyService.create(newEmergencyContactData, petId)
     console.log('newContactData', newContact);
     setEmergencyContact([...emergencyContact, newContact])
@@ -113,7 +107,7 @@ const App = () => {
       pet._id === updatedPetData._id ? updatedPetData : pet
     )
     setPets(newPetsArray)
-		navigate('/my-profile')
+		navigate(`/petDetails/${updatedPetData._id}`)
   }
 
   const petPhotoHelper = async (photo, id) => {
@@ -169,12 +163,9 @@ const App = () => {
           }
         />
         <Route path='/addPet' element={<AddPet handleAddPet={handleAddPet} handleDeletePet={handleDeletePet} pets={pets}/>} />
-
         <Route path='/petDetails/:id' element={<PetDetails profile={profile} pets={pets} handleDeletePet={handleDeletePet} />} />
-        
         <Route path='/pets/:id/edit' element={<EditPet handleUpdatePet={handleUpdatePet}/>} />
         <Route path='/addVet' element={<AddVet handleAddVet={handleAddVet} pets={pets} vets={vets} />} />
-        
         <Route path='/vetDetails/:id' element={<VetDetails pets={pets} vets={vets}/>} />
         <Route path='/emergency-contact' element={<AddEmergencyContact pets={pets} vets={vets} handleAddEmergencyContact={handleAddEmergencyContact} />} />
         <Route path='/:id/emergency-contact' element={<EmergencyContactDetails pets={pets} vets={vets}/>} />
