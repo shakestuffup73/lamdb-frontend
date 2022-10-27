@@ -12,6 +12,7 @@ import AddVet from './pages/AddVet/AddVet'
 import AddEmergencyContact from './pages/AddEmergencyContact/AddEmergencyContact'
 import PetDetails from './pages/PetDetails/PetDetails'
 import VetDetails from './pages/VetDetails/VetDetails'
+import PetRecords from './pages/PetRecords/PetRecords'
 import EmergencyContactDetails from './pages/EmergencyContactDetails/EmergencyContactDetails'
 import EditPet from './pages/EditPet/EditPet'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
@@ -192,6 +193,7 @@ const App = () => {
         <Route path='/vetDetails/:id' element={<VetDetails pets={pets} vets={vets}/>} />
         <Route path='/emergency-contact' element={<AddEmergencyContact pets={pets} vets={vets} handleAddEmergencyContact={handleAddEmergencyContact} />} />
         <Route path='/:id/emergency-contact' element={<EmergencyContactDetails pets={pets} vets={vets}/>} />
+        <Route path='/petRecords/:id' element={<PetRecords pets={pets} vets={vets}/>} />
       </Routes>
     </>
   )

@@ -38,7 +38,7 @@ const show = async (id) => {
 
 const getVets = async () => {
   try {
-    const res = await fetch(`${BASE_URL}/vet-records`, {
+    const res = await fetch(`${BASE_URL}`, {
       headers: { "Authorization": `Bearer ${tokenService.getToken()}`}
     })
     return res.json()

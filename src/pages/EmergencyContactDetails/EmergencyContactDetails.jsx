@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
 
 const EmergencyContactDetails = ({ pet, emergencyContact, handleAddEmergencyContact, handleDeleteEmergencyContact }) => {
