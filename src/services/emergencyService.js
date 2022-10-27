@@ -40,8 +40,11 @@ const getEmergencyContact = async () => {
   }
 }
 
-async function deleteOne(id) {
-  const res = await fetch(`${BASE_URL}/${id}`, {
+
+// const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/pets`
+
+async function deleteOne(petId, ecId) {
+  const res = await fetch(`${BASE_URL}/${petId}/emergencyContact/${ecId}`, {
     method: 'DELETE',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`
