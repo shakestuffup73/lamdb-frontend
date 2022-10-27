@@ -23,7 +23,7 @@ const EmergencyContactDetails = ({ emergencyContact, handleDeleteEmergencyContac
     <main>
       <div>
         <h1>Emergency Contacts</h1>
-        {contact.emergencyContact.length
+        {contact.emergencyContact?.length
           ? contact.emergencyContact.map(contact => 
           <div key={contact._id}>
             <h1>{contact?.name}</h1>
