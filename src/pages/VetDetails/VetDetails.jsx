@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 
-// components
-
 // styles 
 // import styles from "./VetDetails.module.css"
 

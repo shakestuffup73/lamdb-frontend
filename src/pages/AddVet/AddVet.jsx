@@ -29,14 +29,11 @@ const AddVet = (props) => {
       formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
 		}, [formData])
     
-
     const handleSubmit = evt => {
       evt.preventDefault()
-      // call some function that sends formData somewhere
       props.handleAddVet(formData)
     } 
 
-    
   return ( 
     <>
 		<div className={styles.addVetContainer}>
@@ -44,7 +41,6 @@ const AddVet = (props) => {
     <form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
 			<select name="pet" style={{width: "90px"}} onChange={handleChange}>
 				{props.pets.map((pet) => { 
-					console.log('this is petName', pet.petName)
 				return <option key={pet._id} value={pet._id}>{pet.petName}</option>
 			})}
 			</select>

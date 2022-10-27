@@ -4,7 +4,6 @@ import styles from "./MyProfile.module.css"
 
 const MyProfile = (props) => {
 
-  console.log('this is pets', props.pets)
   return (
     props.pets?.length &&
     <>
@@ -18,7 +17,6 @@ const MyProfile = (props) => {
         <div key={pet._id} className={styles.petContainer}>
           <PetCard pet={pet} />
           <Link to={`/petDetails/${pet._id}`}>{pet.petName}'s Profile</Link>
-
           <Link
             to={`/${pet._id}/emergency-contact`}
             state={pet}

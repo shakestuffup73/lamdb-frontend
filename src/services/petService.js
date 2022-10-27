@@ -74,7 +74,6 @@ const update = async (petData) => {
   }
 }
 
-
 export {
   create,
   addPhoto,
