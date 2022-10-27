@@ -9,8 +9,10 @@ import Landing from './pages/Landing/Landing'
 import MyProfile from './pages/MyProfile/MyProfile'
 import AddPet from './pages/AddPet/AddPet'
 import AddVet from './pages/AddVet/AddVet'
+import AddEmergencyContact from './pages/AddEmergencyContact/AddEmergencyContact'
 import PetDetails from './pages/PetDetails/PetDetails'
 import VetDetails from './pages/VetDetails/VetDetails'
+import EmergencyContactDetails from './pages/EmergencyContactDetails/EmergencyContactDetails'
 import EditPet from './pages/EditPet/EditPet'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 
@@ -22,6 +24,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import * as authService from './services/authService'
 import * as petService from './services/petService'
 import * as vetService from './services/vetService'
+import * as emergencyService from './services/emergencyService.js'
 import * as profileService from './services/profileService'
 
 // styles
@@ -32,8 +35,10 @@ const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [pets, setPets] = useState([])
   const [vets, setVets] = useState([])
-  const navigate = useNavigate()
+  const [emergencyContact, setEmergencyContact] = useState([])
   const [profile, setProfile] = useState([])
+  
+  const navigate = useNavigate()
 
   // use effects
   
@@ -63,8 +68,13 @@ const App = () => {
     console.log('this is vets', vets);
   }, [])
 
-
-
+  useEffect(() => {
+    const fetchEmergencyContacts = async () => {
+      const data = await emergencyService.getEmergencyContact()
+      setEmergencyContact(data)
+    }
+    fetchEmergencyContacts()
+  }, [])
 
   // functions for pet and vet
   const handleAddPet = async (newPetData, photo) => {
@@ -80,6 +90,13 @@ const App = () => {
     const newVet = await vetService.create(newVetData)
       setVets([...vets, newVet])
       navigate(`/vetDetails/${newVet._id}`)
+  }
+
+  const handleAddEmergencyContact = async (pet, newEmergencyContactData) => {
+    console.log('this is emergencyContact in handleAddEmergency', emergencyContact)
+    const newContact = await emergencyService.create(newEmergencyContactData)
+      setEmergencyContact([...emergencyContact, newContact])
+      navigate(`/petDetails/${pet._id}/emergency-contact/${newContact._id}`)
   }
 
   const handleUpdatePet = async (updatedPet, photo) => {
@@ -105,7 +122,6 @@ const App = () => {
   //   setVets(newVetsArray)
 	// 	navigate('/my-profile')
   // }
-
 
   const petPhotoHelper = async (photo, id) => {
     const photoData = new FormData()
@@ -174,6 +190,8 @@ const App = () => {
         <Route path='/addVet' element={<AddVet handleAddVet={handleAddVet} pets={pets} vets={vets} />} />
         
         <Route path='/vetDetails/:id' element={<VetDetails pets={pets} vets={vets}/>} />
+        <Route path='/emergency-contact' element={<AddEmergencyContact pets={pets} vets={vets} handleAddEmergencyContact={handleAddEmergencyContact} />} />
+        <Route path='/:id/emergency-contact' element={<EmergencyContactDetails pets={pets} vets={vets}/>} />
       </Routes>
     </>
   )
