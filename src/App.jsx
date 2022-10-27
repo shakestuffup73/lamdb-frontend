@@ -41,6 +41,8 @@ const App = () => {
   
   const navigate = useNavigate()
 
+  console.log('this is vets on App.jsx', vets);
+
   // use effects
   
   useEffect(() => {
@@ -66,7 +68,7 @@ const App = () => {
       setVets(vetsData)
     }
     fetchVets()
-    console.log('this is vets', vets);
+    console.log('this is vets for getVets useEffect', vets);
   }, [])
 
   useEffect(() => {
@@ -114,18 +116,6 @@ const App = () => {
 		navigate('/my-profile')
   }
 
-  // const handleUpdateVet = async (updatedVet) => {
-  //   const updatedVetData = await vetService.update(updatedVet)
-  //   // if (photo) {
-  //   //   updatedPetData.photo = await petPhotoHelper(photo, updatedPet._id)
-  //   // }
-  //   const newVetsArray = vets.map(vet => 
-  //     vet._id === updatedVetData._id ? updatedVetData : vet
-  //   )
-  //   setVets(newVetsArray)
-	// 	navigate('/my-profile')
-  // }
-
   const petPhotoHelper = async (photo, id) => {
     const photoData = new FormData()
     photoData.append('photo', photo)
@@ -137,13 +127,6 @@ const App = () => {
     setPets(pets.filter(pet => pet._id !== deletedPet._id))
     navigate('/my-profile')
   }
-
-  // const handleDeleteVet = async id => {
-  //   const deletedVet = await vetService.deleteOne(id)
-  //   setVets(vets.filter(vet => vet._id !== deletedVet._id))
-  //   navigate('/petDetails/:id')
-  // }
-
 
   // user login log out functions
   const handleLogout = () => {
@@ -195,7 +178,7 @@ const App = () => {
         <Route path='/vetDetails/:id' element={<VetDetails pets={pets} vets={vets}/>} />
         <Route path='/emergency-contact' element={<AddEmergencyContact pets={pets} vets={vets} handleAddEmergencyContact={handleAddEmergencyContact} />} />
         <Route path='/:id/emergency-contact' element={<EmergencyContactDetails pets={pets} vets={vets}/>} />
-        <Route path='/petRecords/:id' element={<PetRecords pets={pets} vets={vets}/>} />
+        <Route path='/petRecords/:id' element={<PetRecords />} />
       </Routes>
     </>
   )

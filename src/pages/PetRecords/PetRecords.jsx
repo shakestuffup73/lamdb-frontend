@@ -4,32 +4,39 @@ import * as vetService from '../../services/vetService'
 
 import VetRecordCard from "../../components/VetRecordCard/VetRecordCard";
 
-const PetRecords = ({ vets }) => {
+const PetRecords = () => {
   const { id } = useParams()
 
-  console.log('this is vets on PetRecords view', vets)
+  // console.log('this is vets on PetRecords view', vets)
 
-  const [record, setRecord] = useState([])
+  const [records, setRecords] = useState([])
   
   useEffect(() => {
-    const fetchRecord = async () => {
+    const fetchRecords = async () => {
       const data = await vetService.show(id)
-      setRecord(data)
+      setRecords(data)
     }
-    fetchRecord()
+    fetchRecords()
   }, [id])
+
+  const handleDeleteVet = async id => {
+    const deletedRecord = await vetService.deleteOne(id)
+    setRecords(records.filter(record => record._id !== deletedRecord._id))
+    // navigate('/petDetails/:id')
+  }
   
-  console.log('this is record on petRecords', record)
+  console.log('this is record on petRecords', records)
 
   return ( 
-    vets?.length &&
-    <main>
+    records?.length &&
+    <main styles={{marginTop: "200px"}}>
       <article>
         <header>
           <h1>This is the Pet Records Page!</h1>
-          {vets?.map(vet => 
-            <div key={vet._id}>
-              <VetRecordCard vet={vet}/>
+          {records?.map(record => 
+            <div key={record._id}>
+              <VetRecordCard record={record}/>
+              <button onClick={() => handleDeleteVet(record._id)}>Delete Vet Record</button>
             </div>
           )}
         </header>
