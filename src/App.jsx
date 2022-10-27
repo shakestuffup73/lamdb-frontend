@@ -54,14 +54,14 @@ const App = () => {
     console.log('this is pets', pets);
   }, [])
 
-  // useEffect(() => {
-  //   const fetchVets = async () => {
-  //     const vetsData = await vetService.getVets()
-  //     setVets(vetsData)
-  //   }
-  //   fetchVets()
-  //   console.log('this is vets', vets);
-  // }, [])
+  useEffect(() => {
+    const fetchVets = async () => {
+      const vetsData = await vetService.getVets()
+      setVets(vetsData)
+    }
+    fetchVets()
+    console.log('this is vets', vets);
+  }, [])
 
 
 

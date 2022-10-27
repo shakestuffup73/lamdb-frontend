@@ -27,7 +27,6 @@ async function create(vet) {
 const show = async (id) => {
   console.log("this is the show id", id);
   try {
-    // GET http://localhost:3001/api/vets/:id
     const res = await fetch(`${BASE_URL}/${id}`, {
       headers: { "Authorization": `Bearer ${tokenService.getToken()}`}
     })
@@ -39,7 +38,7 @@ const show = async (id) => {
 
 const getVets = async () => {
   try {
-    const res = await fetch(`${BASE_URL}`, {
+    const res = await fetch(`${BASE_URL}/vet-records`, {
       headers: { "Authorization": `Bearer ${tokenService.getToken()}`}
     })
     return res.json()
