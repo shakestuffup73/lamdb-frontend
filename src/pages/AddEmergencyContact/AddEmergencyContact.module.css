@@ -1,0 +1,40 @@
+body {
+  margin-top: 100px;;
+  background-color: #29335C;
+  color: white;
+  font-size: 30px;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+button {
+  background-color: #86BBD8;
+  border-radius: 90px;
+  padding: 10px;
+  color: black;
+  font-family: 'Lexend Deca'
+}
+
+.btnDiv {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.addContactContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: #C97B84;
+  line-height: 2em;
+}

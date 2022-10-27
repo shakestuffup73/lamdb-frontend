@@ -196,7 +196,6 @@ const AddVet = (props) => {
 				<br></br>
 					<button
 						type="submit"
-						className="btn btn-primary btn-fluid"
             disabled={!validForm}
 					>
 						Add Vet Visit
