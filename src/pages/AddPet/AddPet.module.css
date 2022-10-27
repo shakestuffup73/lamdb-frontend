@@ -1,11 +1,11 @@
 .titleDiv {
-  margin-top: 100px;
   font-family: 'Lexend Deca', sans-serif;
   display: flex;
   align-items: center;
   flex-direction: column;
   text-align: center;
   font-size: .8em;
+  margin-top: -50px;
 }
 
 .formContainer {
@@ -14,7 +14,7 @@
   align-items: center;
   flex-direction: column;
   text-align: center;
-  margin-top: 2vh;
+  margin-top: 1vh;
 }
 
 .petFormFont {
@@ -29,13 +29,20 @@ button {
   color: #29335C;
 }
 
+textarea {
+  padding: 10px;
+  color: #29335C;
+  width: 70%;
+  border-radius: 15px;
+  margin: 10px;
+}
+
 input {
   padding: 10px;
   color: #29335C;
   width: 70%;
-  word-wrap: break-word;
-  line-break: strict;
-  margin: 10px;
+  margin-bottom: 25px;
+  margin-top: 6px;
   border-radius: 15px;
 }
 
