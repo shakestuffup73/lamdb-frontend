@@ -1,9 +1,4 @@
-.container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-}
+
 
 body {
   margin-top: 160px;
@@ -11,4 +6,12 @@ body {
   color: white;
   font-size: 30px;
   font-family: 'Lexend Deca', sans-serif;
+}
+
+.landingDiv {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  width: 50%;
 }

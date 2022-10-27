@@ -6,7 +6,6 @@ const NavBar = ({ user, handleLogout }) => {
     <nav className={styles.container}>
       {user ?
         <ul className={styles.navUl}>
-          {/* <li><Link to="/changePassword" className={styles.navLink}>Change PW</Link></li> */}
           <li><Link to="/my-profile" className={styles.navLink}>My Pets</Link></li>
           <li><Link to="/addPet" className={styles.navLink}>Add Pet</Link></li>
           <li><Link to="/addVet" className={styles.navLink}>Add Vet Visit</Link></li>
