@@ -36,18 +36,18 @@ const AddVet = (props) => {
 
   return ( 
     <>
-		<div className={styles.addVetContainer}>
-    <h1> Add a Vet Visit here!</h1>
+		<div className={styles.titleDiv}>
+    <h1> Add a Vet Visit Here</h1>
     <form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
 			<select name="pet" style={{width: "90px"}} onChange={handleChange}>
 				{props.pets.map((pet) => { 
 				return <option key={pet._id} value={pet._id}>{pet.petName}</option>
 			})}
 			</select>
-		<div className={styles.vetFormFont}>
-				<div className="form-group mb-3">
+		<div className={styles.formContainer}>
+				<div className={styles.petFormFont}>
 					<label htmlFor="name-input" className="form-label">
-						Vet Name: (required)
+						Vet Name (required)
 					</label>
 					<br></br>
 					<input 
@@ -62,7 +62,7 @@ const AddVet = (props) => {
 				</div>
 				<div className="form-group mb-3">
 					<label htmlFor="contact-input" className="form-label">
-						Vet Contact Info: (required)
+						Vet Contact Info (required)
 					</label>
 					<br></br>
 					<input 
@@ -77,7 +77,7 @@ const AddVet = (props) => {
 				</div>
 				<div className="form-group mb-4">
 					<label htmlFor="description-input" className="form-label">
-						Vet Visit Description:
+						Vet Visit Description
 					</label>
 					<br></br>
 					<input 
@@ -91,7 +91,7 @@ const AddVet = (props) => {
 				</div>
         <div className="form-group mb-4">
 					<label htmlFor="diagnosis-input" className="form-label">
-						Diagnosis:
+						Diagnosis
 					</label>
 					<br></br>
 					<input 
@@ -105,7 +105,7 @@ const AddVet = (props) => {
 				</div>
         <div className="form-group mb-4">
 					<label htmlFor="results-input" className="form-label">
-						Results:
+						Results
 					</label>
 					<br></br>
 					<input 
@@ -119,7 +119,7 @@ const AddVet = (props) => {
 				</div>
         <div className="form-group mb-4">
 					<label htmlFor="medications-input" className="form-label">
-						Medications:
+						Medications
 					</label>
 					<br></br>
 					<input 
@@ -133,7 +133,7 @@ const AddVet = (props) => {
 				</div>
         <div className="form-group mb-4">
 					<label htmlFor="weight-input" className="form-label">
-						Pet Weight:
+						Pet Weight
 					</label>
 					<br></br>
 					<input 
@@ -147,7 +147,7 @@ const AddVet = (props) => {
 				</div>
         <div className="form-group mb-4">
 					<label htmlFor="cost-input" className="form-label">
-						Vet Visit Cost:
+						Vet Visit Cost
 					</label>
 					<br></br>
 					<input 
@@ -161,7 +161,7 @@ const AddVet = (props) => {
 				</div>
         <div className="form-group mb-4">
 					<label htmlFor="appointment-input" className="form-label">
-						Follow-Up Appointment:
+						Follow-Up Appointment
 					</label>
 					<br></br>
 					<input 
@@ -175,7 +175,7 @@ const AddVet = (props) => {
 				</div>
         <div className="form-group mb-4">
 					<label htmlFor="rabies-input" className="form-label">
-						Rabies Follow-Up:
+						Rabies Follow-Up
 					</label>
 					<br></br>
 					<input 
@@ -193,6 +193,7 @@ const AddVet = (props) => {
 					<button
 						type="submit"
             disabled={!validForm}
+						className={styles.addVetBtn}
 					>
 						Add Vet Visit
 					</button>
