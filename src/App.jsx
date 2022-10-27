@@ -123,7 +123,6 @@ const App = () => {
 	// 	navigate('/my-profile')
   // }
 
-
   const petPhotoHelper = async (photo, id) => {
     const photoData = new FormData()
     photoData.append('photo', photo)
