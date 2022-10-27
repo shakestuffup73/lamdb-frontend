@@ -9,8 +9,13 @@
 .label,
 .button {
   margin-right: .5rem;
+  font-size: 20px;
 }
 
 .inputContainer {
-  margin-bottom: 1rem;
+  margin: 0px;
+}
+
+.name {
+  margin-bottom: 0px;
 }
