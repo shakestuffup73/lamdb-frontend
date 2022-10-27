@@ -10,7 +10,7 @@ import styles from "./PetDetails.module.css"
 import * as petService from '../../services/petService'
 
 
-const PetDetails = ({ vet, handleDeletePet }) => {
+const PetDetails = ({ handleDeletePet }) => {
   const { id } = useParams()
 
   const [petDetails, setPetDetails] = useState([])
@@ -40,7 +40,7 @@ const PetDetails = ({ vet, handleDeletePet }) => {
       </div>
       <div className={styles.linksDiv}>
         <Link to={`/pets/${id}/edit`}>Edit Pet Details</Link>
-        <Link to={`/vetDetails/${id}`}>View Vet Records</Link>
+        <Link to={`/petRecords/${id}`}>View Vet Records</Link>
       </div>
       <div className={styles.btnDiv}>
         <button className={styles.deleteBtn} onClick={() => handleDeletePet(id)}>Delete Pet</button>
