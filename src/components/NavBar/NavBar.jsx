@@ -8,7 +8,6 @@ const NavBar = ({ user, handleLogout }) => {
         <ul className={styles.navUl}>
           <li><Link to="/my-profile" className={styles.navLink}>My Pets</Link></li>
           <li><Link to="/addPet" className={styles.navLink}>Add Pet</Link></li>
-          <li><Link to="/addVet" className={styles.navLink}>Add Vet Visit</Link></li>
           <li>
             <Link to="" onClick={handleLogout} className={styles.navLink}><img src="./assets/sheep.png" alt="cartoon sheep face" width="20px" />BAHHbye</Link>
           </li>
