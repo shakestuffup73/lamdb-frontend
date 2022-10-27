@@ -1,6 +1,7 @@
 import { useParams, Link, useNavigate} from "react-router-dom"
 import { useEffect, useState } from 'react'
 import * as emergencyService from '../../services/emergencyService'
+import styles from './EmergencyContactDetails.module.css'
 
 const EmergencyContactDetails = ({ emergencyContact }) => {
   const { id } = useParams()
@@ -32,21 +33,21 @@ const EmergencyContactDetails = ({ emergencyContact }) => {
   return (
     <>
     <main>
-      <div>
+      <div className={styles.emergencyContactContainer}>
         <h1>Emergency Contacts</h1>
         {contact?.length
           ? contact.map(contact => 
           <div key={contact._id}>
-            <h1>{contact?.name}</h1>
-            <h1>{contact?.phoneNumber}</h1>
-            <h1>{contact?.email}</h1>
+            <h4>{contact?.name}</h4>
+            <h4>{contact?.phoneNumber}</h4>
+            <h4>{contact?.email}</h4>
             <button onClick={() => handleDeleteEmergencyContact(contact._id)}>Delete Contact</button>
           </div>
           )
           : <p>No Emergency Contacts Added Yet</p>
         }
-      </div>
       <Link to={`/emergency-contact`} state={id}>Add Emergency Contact</Link>
+      </div>
     </main>
     </>
   )

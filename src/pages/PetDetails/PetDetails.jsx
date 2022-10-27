@@ -35,8 +35,8 @@ const PetDetails = ({ handleDeletePet }) => {
         <h4>Age: {petDetails.age}</h4>
         <h4>Weight: {petDetails.weight}</h4>
         <h4>Behavior Notes: {petDetails.behaviorNotes}</h4>
-        <h3>Allergies: {petDetails.allergies}</h3>
-        <h3>Microchip Link: {petDetails.microchipLink}</h3>
+        <h4>Allergies: {petDetails.allergies}</h4>
+        <h4>Microchip Link: {petDetails.microchipLink}</h4>
       </div>
       <div className={styles.linksDiv}>
         <Link to={`/pets/${id}/edit`}>Edit Pet Details</Link>
