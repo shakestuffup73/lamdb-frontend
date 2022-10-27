@@ -4,7 +4,8 @@ import { useLocation } from 'react-router-dom'
 import styles from '../../pages/AddEmergencyContact/AddEmergencyContact.module.css'
 
 const AddEmergencyContact = (props) => {
-
+	const { state } =useLocation()
+	console.log('this is add emergency state', state);
   const [formData, setFormData] = useState({
     name: '',
     phoneNumber: '', 
@@ -25,7 +26,7 @@ const AddEmergencyContact = (props) => {
 
 	const handleSubmit = evt => {
     evt.preventDefault()
-    props.handleAddEmergencyContact(formData)
+    props.handleAddEmergencyContact(state, formData)
   }
 
   return ( 

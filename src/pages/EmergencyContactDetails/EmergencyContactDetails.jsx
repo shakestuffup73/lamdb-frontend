@@ -1,8 +1,8 @@
 import { useParams, Link } from "react-router-dom"
 
-const EmergencyContactDetails = ({ pet, emergencyContact, handleAddEmergencyContact, handleDeleteEmergencyContact }) => {
+const EmergencyContactDetails = ({ emergencyContact, handleDeleteEmergencyContact }) => {
   const { id } = useParams()
-
+  // console.log('this is emergencydetails pet', id);
   return (
     <main>
       <div>
@@ -11,7 +11,7 @@ const EmergencyContactDetails = ({ pet, emergencyContact, handleAddEmergencyCont
         <h1>{emergencyContact?.phoneNumber}</h1>
         <h1>{emergencyContact?.email}</h1>
       </div>
-      <Link to={`/emergency-contact`}>Add Emergency Contact</Link>
+      <Link to={`/emergency-contact`} state={id}>Add Emergency Contact</Link>
       <button onClick={() => handleDeleteEmergencyContact(id)}>Delete Contact</button>
     </main>
   )

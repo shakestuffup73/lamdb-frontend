@@ -19,7 +19,12 @@ const MyProfile = (props) => {
           <PetCard pet={pet} />
           <Link to={`/petDetails/${pet._id}`}>{pet.petName}'s Profile</Link>
 
-          <Link to={`/${pet._id}/emergency-contact/${pet.emergencyContact}`}>View Emergency Contact</Link>
+          <Link
+            to={`/${pet._id}/emergency-contact`}
+            state={pet}
+          >
+            View Emergency Contact
+          </Link>
         </div> 
         )}
       </div>

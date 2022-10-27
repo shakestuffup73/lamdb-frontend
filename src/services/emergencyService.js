@@ -1,10 +1,12 @@
 import * as tokenService from '../services/tokenService'
 
+// router.post('/:id/emergency-contact', checkAuth, petsCtrl.createContact)
+
 const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/pets`
 
 
-async function create(emergencyContact, pet) {
-  const res = await fetch(BASE_URL, {
+async function create(emergencyContact, petId) {
+  const res = await fetch(`${BASE_URL}/${petId}/emergency-contact`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

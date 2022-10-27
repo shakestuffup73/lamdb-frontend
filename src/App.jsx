@@ -93,11 +93,13 @@ const App = () => {
       navigate(`/vetDetails/${newVet._id}`)
   }
 
-  const handleAddEmergencyContact = async (pet, newEmergencyContactData) => {
+  const handleAddEmergencyContact = async (petId, newEmergencyContactData) => {
     console.log('this is emergencyContact in handleAddEmergency', emergencyContact)
-    const newContact = await emergencyService.create(newEmergencyContactData)
-      setEmergencyContact([...emergencyContact, newContact])
-      navigate(`/petDetails/${pet._id}/emergency-contact/${newContact._id}`)
+    console.log('this is emergency petId', petId);
+    const newContact = await emergencyService.create(newEmergencyContactData, petId)
+    console.log('newContactData', newContact);
+    setEmergencyContact([...emergencyContact, newContact])
+    navigate(-1)
   }
 
   const handleUpdatePet = async (updatedPet, photo) => {
