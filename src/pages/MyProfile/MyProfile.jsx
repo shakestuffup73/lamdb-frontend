@@ -5,13 +5,13 @@ import styles from "./MyProfile.module.css"
 const MyProfile = (props) => {
 
   return (
-    props.pets?.length &&
     <>
     <div className={styles.displayWelcome}>
       <h2>Welcome, {props.profile.name} </h2>
       <img src={`${props.profile.photo}`} alt="profile upload" style={{height: '90px', marginTop: '0px'}} />
       <Link to="/changePassword" className={styles.navUL}>Change Account Password</Link>
     </div>
+    {props.pets?.length ?
       <div className={styles.displayCards}>
         {props.pets?.map((pet) =>
         <div key={pet._id} className={styles.petContainer}>
@@ -26,6 +26,11 @@ const MyProfile = (props) => {
         </div> 
         )}
       </div>
+      :
+      <div className={styles.noPet}>
+        <h2>No Pets to Display</h2>
+      </div>
+    } 
     </>
   )
 }
