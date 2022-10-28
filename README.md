@@ -10,25 +10,27 @@ This app will:
 
 We hope you enjoy this app! 
 
-## Contributors:
+# Contributors:
 - Amanda Stern
 - Lily Howlader
 - Maddie Stevenson
   
-### Here is a link to our app:
+# Link to [LAMdb](https://lamdb.netlify.app/)
 
-## Planning Materials:
-#### Link to Trello Board: https://trello.com/b/Of4o4JVy/lamdb
+# Planning Materials:
+### Link to [Trello Board](https://trello.com/b/Of4o4JVy/lamdb)
 
-### Below is our wireframe:
+### Link to our [Whimsical](https://whimsical.com/lamdb-K2TjcLPjY9Ve3bbPKog8FU)
 
-### ERD:
+### ERD:![ERD](public/assets/erd.png)
 
 ### Desktop View:
 ### Mobile View:
 
 ## Technologies Used:
 - React JS
+- MongoDB
+- JWS Auth
 - VS Code
 - CSS
 - Whimsical
@@ -37,8 +39,10 @@ We hope you enjoy this app!
   
 ## Credits: 
 - Paw Print favicon used from Isabella Baillie on Giphy - https://giphy.com/stickers/paw-pawprint-print-fXWP44L91ioNZQSh2G
+- Sheep image from pixy.org - https://pixy.org/4523919/
 
 ## Next Steps:
 - Implement community feature.
 - Add components for pet's preferred toys and foods.
 - Allow PDF uploads from vet visits.
+- All update feature for vet records.

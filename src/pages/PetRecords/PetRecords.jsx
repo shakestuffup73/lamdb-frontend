@@ -7,8 +7,6 @@ import styles from './PetRecords.module.css'
 const PetRecords = () => {
   const { id } = useParams()
 
-  console.log('this is the PetRecords id', id);
-
   const [records, setRecords] = useState([])
   
   useEffect(() => {
@@ -25,19 +23,24 @@ const PetRecords = () => {
   }
   
   return ( 
-    records?.length &&
     <main>
       <article>
         <header>
-          <h1>This is the Pet Records Page!</h1>
-          <div className={styles.displayCards}>
-            {records?.map(record => 
-              <div key={record._id} className={styles.recordContainer}>
-                <VetRecordCard record={record}/>
-                <button onClick={() => handleDeleteVet(record._id)}>Delete Vet Record</button>
-              </div>
-            )}
-          </div>
+          <h1>Vet Records!</h1>
+          {records?.length ?
+            <div className={styles.displayCards}>
+              {records?.map(record => 
+                <div key={record._id} className={styles.recordContainer}>
+                  <VetRecordCard record={record}/>
+                  <button onClick={() => handleDeleteVet(record._id)}>Delete Vet Record</button>
+                </div>
+              )}
+            </div>
+            :
+            <div className={styles.noRecords}>
+            <h2>No Vet Records to Display</h2>
+            </div>
+          }
         </header>
       </article>
     </main>
