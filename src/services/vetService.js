@@ -28,7 +28,6 @@ async function deleteOne(vetId) {
 }
 
 const show = async (id) => {
-  console.log("this is the show id", id);
   try {
     const res = await fetch(`${BASE_URL}/${id}`, {
       headers: { "Authorization": `Bearer ${tokenService.getToken()}`}

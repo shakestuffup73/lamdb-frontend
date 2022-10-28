@@ -5,7 +5,6 @@ import styles from '../../pages/AddEmergencyContact/AddEmergencyContact.module.c
 
 const AddEmergencyContact = (props) => {
 	const { state } =useLocation()
-	console.log('this is add emergency state', state);
   const [formData, setFormData] = useState({
     name: '',
     phoneNumber: '', 

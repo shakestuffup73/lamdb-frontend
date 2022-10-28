@@ -5,30 +5,21 @@ import styles from './EmergencyContactDetails.module.css'
 
 const EmergencyContactDetails = ({ emergencyContact }) => {
   const { id } = useParams()
-  // console.log('this is emergencydetails pet', id);
-
 
   const [contact, setContact] = useState([])
 
   const handleDeleteEmergencyContact = async (cId) => {
     const deletedContact = await emergencyService.deleteOne(id, cId)
-    console.log(deletedContact)
     setContact(contact.filter(c => c._id !== cId))
-
   }
-  
-
 
   useEffect(() => {
     const fetchContact = async () => {
       const data = await emergencyService.show(id)
-      console.log('this is data', data)
       setContact(data.emergencyContact)
     }
     fetchContact()
   }, [id])
-
-  console.log('this is contact in emergencyContactDetails', contact);
   
   return (
     <>
