@@ -1,4 +1,4 @@
-.titleDiv {
+.detailsDiv {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,12 +6,16 @@
   width: 100%;
 }
 
+.titleDiv {
+  font-size: .8em;
+}
+
 .detailsDiv {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: .6em;
+  font-size: .8em;
   line-height: .3em;
 }
 
@@ -23,22 +27,42 @@
   width: 100%;
 }
 
-.deleteBtn {
-  background-color: #86BBD8;
-  border-radius: 90px;
-  padding: 10px;
-  font-family: 'Lexend Deca';
-  height: 3rem;
-  padding: 10px;
-  margin: 20px;
-  color: whitesmoke;
-  border-radius: 80px;
-}
 
 .linksDiv {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 100%;
+  max-width: 600px;
+}
+
+.detailsLink, .deleteBtn {
+  color: #29335C;
+  font-size: .8em;
+  text-decoration: none;
+  border: 2px solid whitesmoke;
+  padding: 16px;
+  border-radius: 20px;
+  background: #C97B84;
+  width: 30%;
+  margin: 10px;
+  max-width: 200px;
+}
+
+.detailsLink:hover {
+  box-shadow: 0px 1px 10px 1px #F3DFC1;
+  border-radius: 70px;
+}
+
+.deleteBtn {
+  background-color: #86BBD8;
+  height: 55px;
+  width: 35%;
+  border-radius: 30px;
+  margin: 40px;
+}
+
+.deleteBtn:hover {
+  box-shadow: 0px 1px 10px 1px #C97B84;
 }

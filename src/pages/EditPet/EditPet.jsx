@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 
 import * as petService from '../../services/petService'
+import styles from './EditPet.module.css'
 
 const EditPet = (props) => {
   const { id } = useParams()
@@ -30,16 +31,19 @@ const EditPet = (props) => {
 	}
 
   return (
-			<main style={{marginTop: '200px'}}>
+		<>
+			<div className={styles.titleDiv}>
+        <h1>Update Pet Profile</h1>
+			</div>
+			<div className={styles.formContainer}>
       <form onSubmit={handleSubmit}>
-        <h1>Update Pet Details</h1>
-        <div>
-        <label htmlFor="name-input" className="form-label">
+        <div className={styles.petFormFont}>
+        <label htmlFor="name-input">
 						Pet's Name (required)
 					</label>
+					<br></br>
 					<input 
 						type="text"
-						className="form-control"
 						id="name-input"
 						name="petName"
             value={form.petName}
@@ -48,12 +52,12 @@ const EditPet = (props) => {
 						/>
 				</div>
 				<div>
-					<label htmlFor="species-input" className="form-label">
+					<label htmlFor="species-input">
 						Species (required)
 					</label>
+					<br></br>
 					<input 
 						type="text"
-						className="form-control"
 						id="species-input"
 						name="species"
             value={form.species}
@@ -62,12 +66,12 @@ const EditPet = (props) => {
 						/>
 				</div>
 				<div>
-					<label htmlFor="color-input" className="form-label">
+					<label htmlFor="color-input">
 						Color
 					</label>
+					<br></br>
 					<input 
 						type="text"
-						className="form-control"
 						id="color-input"
 						name="color"
             value={form.color}
@@ -75,12 +79,12 @@ const EditPet = (props) => {
 					/>
 				</div>
         <div>
-					<label htmlFor="breed-input" className="form-label">
+					<label htmlFor="breed-input">
 						Breed
 					</label>
+					<br></br>
 					<input 
 						type="text"
-						className="form-control"
 						id="breed-input"
 						name="breed"
             value={form.breed}
@@ -88,9 +92,10 @@ const EditPet = (props) => {
 						/>
 				</div>
         <div>
-					<label htmlFor="age-input" className="form-label">
+					<label htmlFor="age-input">
 						Age
 					</label>
+					<br></br>
 					<input 
 						type="text"
 						className="form-control"
@@ -101,9 +106,10 @@ const EditPet = (props) => {
 					/>
 				</div>
         <div>
-					<label htmlFor="weight-input" className="form-label">
+					<label htmlFor="weight-input">
 						Weight (in pounds)
 					</label>
+					<br></br>
 					<input 
 						type="text"
 						className="form-control"
@@ -114,12 +120,15 @@ const EditPet = (props) => {
 						/>
 				</div>
         <div>
-					<label htmlFor="behaviorNotes-input" className="form-label">
+					<label htmlFor="behaviorNotes-input">
 						Behavior Notes
 					</label>
-					<input 
+					<br></br>
+					<textarea 
 						type="text"
 						className="form-control"
+						cols="20"
+						rows="10"
 						id="behaviorNotes-input"
 						name="behaviorNotes"
             value={form.behaviorNotes}
@@ -127,9 +136,10 @@ const EditPet = (props) => {
 						/>
 				</div>
         <div>
-					<label htmlFor="allergies-input" className="form-label">
+					<label htmlFor="allergies-input">
 						Allergies
 					</label>
+					<br></br>
 					<input 
 						type="text"
 						className="form-control"
@@ -140,9 +150,10 @@ const EditPet = (props) => {
 						/>
 				</div>
         <div>
-					<label htmlFor="microchipLink-input" className="form-label">
+					<label htmlFor="microchipLink-input">
 						Microchip Link
 					</label>
+					<br></br>
 					<input 
 						type="text"
 						className="form-control"
@@ -153,22 +164,23 @@ const EditPet = (props) => {
 						/>
 				</div>
 				<div>
-					<label htmlFor="photo-upload" className="form-label">
+					<label htmlFor="photo-upload">
           {updatePhotoData.photo ? "Replace existing photo" : "Add Photo"}
 					</label>
+					<br></br>
 					<input
 						type="file"
-						className="form-control"
 						id="photo-upload"
 						name="photo"
 						onChange={handleUpdatePhoto}
 						/>
 				</div>
 				<div>
-					<button type="submit">Update Pet</button>
+					<button type="submit" className={styles.updateBtn}>Update Pet</button>
 				</div>
       </form>
-    </main>
+			</div>
+		</>
 		)
 	}
 	

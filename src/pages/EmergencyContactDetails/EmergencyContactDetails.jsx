@@ -37,10 +37,10 @@ const EmergencyContactDetails = ({ emergencyContact }) => {
         <h1>Emergency Contacts</h1>
         {contact?.length
           ? contact.map(contact => 
-          <div key={contact._id}>
-            <h4>{contact?.name}</h4>
-            <h4>{contact?.phoneNumber}</h4>
-            <h4>{contact?.email}</h4>
+          <div key={contact._id} className={styles.contactDiv}>
+            <h4>Name: {contact?.name}</h4>
+            <h4>Number: {contact?.phoneNumber}</h4>
+            <h4>Email: {contact?.email}</h4>
             <button onClick={() => handleDeleteEmergencyContact(contact._id)}>Delete Contact</button>
           </div>
           )

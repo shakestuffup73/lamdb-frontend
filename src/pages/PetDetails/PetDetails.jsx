@@ -24,7 +24,8 @@ const PetDetails = ({ handleDeletePet }) => {
   }, [id])
 
   return (
-    <main>
+    <>
+    <div className={styles.detailsDiv}>
       <div className={styles.titleDiv}>
         <h1>{petDetails?.petName}'s Profile</h1>
       </div>
@@ -39,13 +40,14 @@ const PetDetails = ({ handleDeletePet }) => {
         <h4>Microchip Link: {petDetails.microchipLink}</h4>
       </div>
       <div className={styles.linksDiv}>
-        <Link to={`/pets/${id}/edit`}>Edit Pet Details</Link>
-        <Link to={`/petRecords/${id}`}>View Vet Records</Link>
+        <Link to={`/pets/${id}/edit`} className={styles.detailsLink}>Edit Pet Details</Link>
+        <Link to={`/petRecords/${id}`} className={styles.detailsLink}>View Vet Records</Link>
       </div>
       <div className={styles.btnDiv}>
         <button className={styles.deleteBtn} onClick={() => handleDeletePet(id)}>Delete Pet</button>
       </div>
-    </main>
+    </div>
+    </>
   )
 }
 
