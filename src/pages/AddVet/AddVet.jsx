@@ -31,6 +31,7 @@ const AddVet = (props) => {
     
     const handleSubmit = evt => {
       evt.preventDefault()
+			console.log('this is formData on AddVet', formData);
       props.handleAddVet(formData)
     } 
 

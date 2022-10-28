@@ -2,16 +2,19 @@ import * as tokenService from './tokenService'
 
 const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/vets`
 
-async function create(vet) {
-  const res = await fetch(BASE_URL, {
+async function create(vetData) {
+  try {const res = await fetch(BASE_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${tokenService.getToken()}`
     },
-    body: JSON.stringify(vet)
+    body: JSON.stringify(vetData)
   })
   return res.json()
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 async function deleteOne(vetId) {
@@ -36,9 +39,9 @@ const show = async (id) => {
   }
 }
 
-const getVets = async () => {
+const getVets = async (petId) => {
   try {
-    const res = await fetch(`${BASE_URL}`, {
+    const res = await fetch(`${BASE_URL}/${petId}`, {
       headers: { "Authorization": `Bearer ${tokenService.getToken()}`}
     })
     return res.json()
