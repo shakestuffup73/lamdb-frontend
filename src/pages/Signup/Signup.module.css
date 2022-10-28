@@ -3,6 +3,7 @@
   align-items: center;
   flex-direction: column;
   text-align: center;
+  width: 100%;
 }
 
 input::file-selector-button {
@@ -13,7 +14,7 @@ input::file-selector-button {
   font-family: 'Lexend Deca', sans-serif;
   border: 4px solid #29335C;
   margin: -20px;
-  width: 80px;
+  width: 120px;
 }
 
 input::file-selector-button:hover {
