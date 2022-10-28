@@ -56,13 +56,12 @@ const App = () => {
       setPets(petsData)
     }
     fetchPets()
-    console.log('this is pets', pets);
+
   }, [])
 
   useEffect(() => {
     const fetchVets = async () => {
       const vetsData = await vetService.getVets()
-      console.log('this is vetsData', vetsData);
       setVets(vetsData)
     }
     fetchVets()

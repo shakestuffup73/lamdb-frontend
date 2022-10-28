@@ -10,6 +10,9 @@ This app will:
 
 We hope you enjoy this app! 
 
+![home](public/assets/home.png)
+![profile](public/assets/profile.png)
+
 # Contributors:
 - Amanda Stern
 - Lily Howlader
@@ -23,9 +26,6 @@ We hope you enjoy this app!
 ### Link to our [Whimsical](https://whimsical.com/lamdb-K2TjcLPjY9Ve3bbPKog8FU)
 
 ### ERD:![ERD](public/assets/erd.png)
-
-### Desktop View:
-### Mobile View:
 
 ## Technologies Used:
 - React JS
@@ -45,4 +45,4 @@ We hope you enjoy this app!
 - Implement community feature.
 - Add components for pet's preferred toys and foods.
 - Allow PDF uploads from vet visits.
-- All update feature for vet records.
+- Add update feature for vet records.
