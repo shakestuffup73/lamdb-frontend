@@ -62,6 +62,7 @@ const App = () => {
   useEffect(() => {
     const fetchVets = async () => {
       const vetsData = await vetService.getVets()
+      console.log('this is vetsData', vetsData);
       setVets(vetsData)
     }
     fetchVets()
@@ -85,15 +86,13 @@ const App = () => {
     navigate('/my-profile')
   }
 
-  const handleAddVet = async (newVetData) => {
-    const newVet = await vetService.create(newVetData)
-      setVets([...vets, newVet])
-      navigate(`/vetDetails/${newVet._id}`)
+  const handleAddVet = async (vetData) => {
+    const newVet = await vetService.create(vetData)
+      navigate(`/petRecords/${vetData.pet}`)
   }
 
   const handleAddEmergencyContact = async (petId, newEmergencyContactData) => {
     const newContact = await emergencyService.create(newEmergencyContactData, petId)
-    console.log('newContactData', newContact);
     setEmergencyContact([...emergencyContact, newContact])
     navigate(-1)
   }
