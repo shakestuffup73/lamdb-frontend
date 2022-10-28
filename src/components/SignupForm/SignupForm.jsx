@@ -43,6 +43,8 @@ const SignupForm = props => {
   }
 
   return (
+    <>
+    <div className={styles.signupDiv}>
     <form
       autoComplete="off"
       onSubmit={handleSubmit}
@@ -110,10 +112,12 @@ const SignupForm = props => {
           Sign Up
         </button>
         <Link to="/">
-          <button>Cancel</button>
+          <button className={styles.button}>Cancel</button>
         </Link>
       </div>
     </form>
+    </div>
+    </>
   )
 }
 

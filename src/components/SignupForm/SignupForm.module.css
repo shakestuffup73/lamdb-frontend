@@ -1,21 +1,33 @@
-.container {
+
+.signupDiv {
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
+  width: 100%;
 }
 
-.label,
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  font-size: 22px;
+  color: #C97B84;
+}
+
 .button {
-  margin-right: .5rem;
-  font-size: 20px;
+  background-color: #C97B84;
+  border-radius: 90px;
+  padding: 10px;
+  color: #29335C;
+  width: 80%;
+  margin-bottom: 30px;
+  border: 3px solid #F3DFC1;
 }
 
-.inputContainer {
-  margin: 0px;
-}
-
-.name {
-  margin-bottom: 0px;
+.button:hover {
+  box-shadow: 0px 1px 10px 1px whitesmoke;
+  border-radius: 70px;
 }

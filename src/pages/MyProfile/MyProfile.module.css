@@ -66,7 +66,7 @@
   border-radius: 20px;
 }
 
-.profileLink, .vetLink {
+.profileLink {
   color: whitesmoke;
   font-size: 12px;
   text-decoration: none;
@@ -86,4 +86,16 @@ p {
   margin-top: 5px;
   margin-bottom: 0px;
   font-size: 14px;
+}
+
+.vetLink {
+  color: whitesmoke;
+  font-size: 12px;
+  text-decoration: none;
+  border: 2px solid #C97B84;
+  padding: 8px;
+  border-radius: 20px;
+  background: #29335C;
+  width: 10%;
+  text-align: center;
 }
