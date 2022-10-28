@@ -25,6 +25,7 @@ body {
   background: #F3DFC1;
   color: #29335C;
   font-size: .8em;
+  border-radius: 20px;
 }
 
 .titleDiv {
@@ -33,6 +34,7 @@ body {
   color: whitesmoke;
   padding: 20px;
   font-size: .5em;
+  border-radius: 20px;
 }
 
 .landingNavyText {
