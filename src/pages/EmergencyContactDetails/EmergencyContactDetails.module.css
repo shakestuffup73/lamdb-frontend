@@ -1,23 +1,50 @@
-.emergencyContactContainer {
+.contactsPage {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: .5em;
+}
+
+.emergencyContactContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   text-align: center;
-  font-size: .7em;
+  font-size: .8em;
+  margin-right: 22px;
 }
 
 .contactDiv {
-  display: flex;
-  flex-direction: column;
-  border: 4px solid whitesmoke;
-  font-size: .7em;
-  padding: 12px;
+  border: 4px solid #C97B84;
+  padding: 20px;
+  background: whitesmoke;
+  color: #29335C;
+  margin: 10px;
+}
+
+.emergencyContactLink {
+  text-decoration: none;
   background-color: #C97B84;
+  border: 3px solid whitesmoke;
+  padding: 12px;
+  margin-top: 30px;
+  border-radius: 20px;
+  color: #29335C;
+}
+
+.emergencyContactLink:hover {
+  box-shadow: 0px 1px 10px 1px whitesmoke;
+}
+
+.deleteBtn {
   color: whitesmoke;
+  background-color: #29335C;
+  border: 2px solid #C97B84;
+  height: 42px;
+  font-size: 12px;
 }
 
 
-a {
-  margin-top: 10px;;
+.deleteBtn:hover {
+  box-shadow: 0px 1px 10px 1px #29335C;
 }

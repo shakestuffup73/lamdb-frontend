@@ -22,28 +22,26 @@ const PetRecords = () => {
     setRecords(records.filter(record => record._id !== deletedRecord._id))
   }
   
-  return ( 
-    <main>
-      <article>
-        <header>
-          <h1>Vet Records!</h1>
-          {records?.length ?
-            <div className={styles.displayCards}>
-              {records?.map(record => 
-                <div key={record._id} className={styles.recordContainer}>
-                  <VetRecordCard record={record}/>
-                  <button onClick={() => handleDeleteVet(record._id)}>Delete Vet Record</button>
-                </div>
-              )}
-            </div>
-            :
-            <div className={styles.noRecords}>
-            <h2>No Vet Records to Display</h2>
-            </div>
-          }
-        </header>
-      </article>
-    </main>
+  return (
+    <>
+    <div className={styles.recordsDiv}>
+        <h2>Vet Records</h2>
+        {records?.length ?
+          <div className={styles.displayCards}>
+            {records?.map(record => 
+              <div key={record._id} className={styles.recordContainer}>
+                <VetRecordCard record={record}/>
+                <button onClick={() => handleDeleteVet(record._id)} className={styles.deleteBtn}>Delete Vet Record</button>
+              </div>
+            )}
+          </div>
+          :
+          <div className={styles.noRecords}>
+            <h5>No Vet Records to Display</h5>
+          </div>
+        }
+      </div>
+    </>
   );
 }
 

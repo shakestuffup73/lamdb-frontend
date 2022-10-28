@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 100%;
+  margin: 20px;
 }
 
 .titleDiv {
@@ -15,7 +15,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: .8em;
+  font-size: .7em;
   line-height: .3em;
 }
 
@@ -24,7 +24,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 80%;
 }
 
 
@@ -33,19 +33,19 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 600px;
+  width: 80%;
+  max-width: 400px;
 }
 
 .detailsLink, .deleteBtn {
   color: #29335C;
-  font-size: .8em;
+  font-size: .7em;
   text-decoration: none;
   border: 2px solid whitesmoke;
   padding: 16px;
   border-radius: 20px;
   background: #C97B84;
-  width: 30%;
+  width: 40%;
   margin: 10px;
   max-width: 200px;
 }
@@ -57,7 +57,7 @@
 
 .deleteBtn {
   background-color: #86BBD8;
-  height: 55px;
+  height: 45px;
   width: 35%;
   border-radius: 30px;
   margin: 40px;

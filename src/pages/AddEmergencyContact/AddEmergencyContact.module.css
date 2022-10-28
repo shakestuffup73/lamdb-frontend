@@ -1,5 +1,5 @@
 body {
-  margin-top: 100px;;
+  margin-top: 100px;
   background-color: #29335C;
   color: white;
   font-size: 30px;
@@ -10,8 +10,32 @@ button {
   background-color: #86BBD8;
   border-radius: 90px;
   padding: 10px;
-  color: black;
-  font-family: 'Lexend Deca'
+  color: #29335C;
+  font-family: 'Lexend Deca';
+  border: 3px solid whitesmoke;
+}
+
+button:hover {
+  box-shadow: 0px 1px 10px 1px #C97B84;
+  border-radius: 70px;
+}
+
+.contactDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.formDiv {
+  color: #C97B84;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.emergencyContactBtn {
+  text-decoration: none;
 }
 
 .btnDiv {
@@ -27,6 +51,8 @@ button {
   align-items: center;
   flex-direction: column;
   text-align: center;
+  background-color: #C97B84;
+  border: 3px solid whitesmoke;
 }
 
 .contactForm {

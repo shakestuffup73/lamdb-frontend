@@ -31,176 +31,146 @@ const AddVet = (props) => {
     
     const handleSubmit = evt => {
       evt.preventDefault()
-			console.log('this is formData on AddVet', formData);
       props.handleAddVet(formData)
     } 
 
   return ( 
     <>
-		<div className={styles.titleDiv}>
-    <h1> Add a Vet Visit Here</h1>
-    <form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
-			<select name="pet" style={{width: "90px"}} onChange={handleChange}>
-				{props.pets.map((pet) => { 
-				return <option key={pet._id} value={pet._id}>{pet.petName}</option>
-			})}
-			</select>
-		<div className={styles.formContainer}>
-				<div className={styles.petFormFont}>
-					<label htmlFor="name-input" className="form-label">
-						Vet Name (required)
-					</label>
-					<br></br>
-					<input 
-						type="text"
-						className="form-control"
-						id="name-input"
-						name="name"
-            value={formData.name}
-            onChange={handleChange}
-						required
-					/>
-				</div>
-				<div className="form-group mb-3">
-					<label htmlFor="contact-input" className="form-label">
-						Vet Contact Info (required)
-					</label>
-					<br></br>
-					<input 
-						type="text"
-						className="form-control"
-						id="contact-input"
-						name="contact"
-            value={formData.contact}
-            onChange={handleChange}
-						required
-					/>
-				</div>
-				<div className="form-group mb-4">
-					<label htmlFor="description-input" className="form-label">
-						Vet Visit Description
-					</label>
-					<br></br>
-					<input 
-						type="text"
-						className="form-control"
-						id="description-input"
-						name="description"
-            value={formData.description}
-            onChange={handleChange}
-					/>
-				</div>
-        <div className="form-group mb-4">
-					<label htmlFor="diagnosis-input" className="form-label">
-						Diagnosis
-					</label>
-					<br></br>
-					<input 
-						type="text"
-						className="form-control"
-						id="diagnosis-input"
-						name="diagnosis"
-            value={formData.diagnosis}
-            onChange={handleChange}
-					/>
-				</div>
-        <div className="form-group mb-4">
-					<label htmlFor="results-input" className="form-label">
-						Results
-					</label>
-					<br></br>
-					<input 
-						type="text"
-						className="form-control"
-						id="results-input"
-						name="results"
-            value={formData.results}
-            onChange={handleChange}
-					/>
-				</div>
-        <div className="form-group mb-4">
-					<label htmlFor="medications-input" className="form-label">
-						Medications
-					</label>
-					<br></br>
-					<input 
-						type="text"
-						className="form-control"
-						id="medications-input"
-						name="medications"
-            value={formData.medications}
-            onChange={handleChange}
-					/>
-				</div>
-        <div className="form-group mb-4">
-					<label htmlFor="weight-input" className="form-label">
-						Pet Weight
-					</label>
-					<br></br>
-					<input 
-						type="text"
-						className="form-control"
-						id="weight-input"
-						name="weight"
-            value={formData.weight}
-            onChange={handleChange}
-					/>
-				</div>
-        <div className="form-group mb-4">
-					<label htmlFor="cost-input" className="form-label">
-						Vet Visit Cost
-					</label>
-					<br></br>
-					<input 
-						type="text"
-						className="form-control"
-						id="cost-input"
-						name="cost"
-            value={formData.cost}
-            onChange={handleChange}
-					/>
-				</div>
-        <div className="form-group mb-4">
-					<label htmlFor="appointment-input" className="form-label">
-						Follow-Up Appointment
-					</label>
-					<br></br>
-					<input 
-						type="text"
-						className="form-control"
-						id="appointment-input"
-						name="appointment"
-            value={formData.appointment}
-            onChange={handleChange}
-					/>
-				</div>
-        <div className="form-group mb-4">
-					<label htmlFor="rabies-input" className="form-label">
-						Rabies Follow-Up
-					</label>
-					<br></br>
-					<input 
-						type="text"
-						className="form-control"
-						id="rabies-input"
-						name="rabies"
-            value={formData.rabies}
-            onChange={handleChange}
-					/>
-				</div>
-			
-				<div className="d-grid">
-				<br></br>
-					<button
-						type="submit"
-            disabled={!validForm}
-						className={styles.addVetBtn}
-					>
-						Add Vet Visit
-					</button>
-				</div>
+		<div className={styles.addVetDiv}>
+			<div className={styles.titleDiv}>
+				<h1> Add a Vet Visit Here</h1>
 			</div>
-			</form>
+			<div className={styles.formContainer}>
+				<form autoComplete="off" ref={formElement} onSubmit={handleSubmit} className={styles.addPetForm}>
+					<select name="pet" style={{width: "90px"}} onChange={handleChange}>
+					{props.pets.map((pet) => { 
+						return <option key={pet._id} value={pet._id}>{pet.petName}</option>
+					})}
+					</select>
+					<br></br>
+					<br></br>
+					<div className={styles.petFormFont}>
+						<label htmlFor="name-input">Vet Name (required)</label>
+						<br></br>
+						<input 
+							type="text"
+							id="name-input"
+							name="name"
+							value={formData.name}
+							onChange={handleChange}
+							required
+						/>
+						<br></br>
+						<label htmlFor="contact-input">Vet Contact Info (required)</label>
+						<br></br>
+						<textarea 
+							type="text"
+							id="contact-input"
+							name="contact"
+							cols="20"
+							rows="2"
+							value={formData.contact}
+							onChange={handleChange}
+							required
+						/>
+						<br></br>
+						<label htmlFor="description-input">Vet Visit Description</label>
+						<br></br>
+						<textarea 
+							type="text"
+							id="description-input"
+							name="description"
+							cols="20"
+							rows="6"
+							value={formData.description}
+							onChange={handleChange}
+						/>
+						<label htmlFor="diagnosis-input">Diagnosis</label>
+						<br></br>
+						<textarea 
+							type="text"
+							id="diagnosis-input"
+							name="diagnosis"
+							cols="20"
+							rows="6"
+							value={formData.diagnosis}
+							onChange={handleChange}
+						/>
+						<br></br>
+						<label htmlFor="results-input">Results</label>
+						<br></br>
+						<textarea
+							type="text"
+							id="results-input"
+							name="results"
+							cols="20"
+							rows="6"
+							value={formData.results}
+							onChange={handleChange}
+						/>
+						<br></br>
+						<label htmlFor="medications-input">Medications</label>
+						<br></br>
+						<textarea 
+							type="text"
+							id="medications-input"
+							name="medications"
+							cols="20"
+							rows="4"
+							value={formData.medications}
+							onChange={handleChange}
+						/>
+						<br></br>
+						<label htmlFor="weight-input">Pet Weight</label>
+						<br></br>
+						<input 
+							type="text"
+							id="weight-input"
+							name="weight"
+							value={formData.weight}
+							onChange={handleChange}
+						/>
+						<br></br>
+						<label htmlFor="cost-input">Vet Visit Cost</label>
+						<br></br>
+						<input 
+							type="text"
+							id="cost-input"
+							name="cost"
+							value={formData.cost}
+							onChange={handleChange}
+						/>
+						<br></br>
+						<label htmlFor="appointment-input">Follow-Up Appointment</label>
+						<br></br>
+						<input 
+							type="text"
+							id="appointment-input"
+							name="appointment"
+							value={formData.appointment}
+							onChange={handleChange}
+						/>
+						<br></br>
+						<label htmlFor="rabies-input">Rabies Follow-Up</label>
+						<br></br>
+						<input 
+							type="text"
+							id="rabies-input"
+							name="rabies"
+							value={formData.rabies}
+							onChange={handleChange}
+						/>
+					<br></br>
+						<button
+							type="submit"
+							disabled={!validForm}
+							className={styles.addVetBtn}
+						>
+							Add Vet Visit
+						</button>
+					</div>
+				</form>
+				</div>
 			</div>
 		</>
   );

@@ -31,10 +31,11 @@ const AddEmergencyContact = (props) => {
 
   return ( 
     <>
+		<div className={styles.contactDiv}>
       <div className={styles.addContactContainer}>
         <h3>Add Emergency Contact Here</h3>
       </div>
-      <div>
+      <div className={styles.formDiv}>
         <form autoComplete="off" ref={formElement} onSubmit={handleSubmit} >
 			<div className={styles.contactForm}>
 				<label htmlFor="name-input">
@@ -42,7 +43,6 @@ const AddEmergencyContact = (props) => {
 				</label>
         <input 
 					type="text"
-					className="form-control"
 					id="name-input"
 					name="name"
 					value={formData.name}
@@ -54,7 +54,6 @@ const AddEmergencyContact = (props) => {
 				</label>
         <input 
 					type="text"
-					className="form-control"
 					id="name-input"
 					name="phoneNumber"
 					value={formData.phoneNumber}
@@ -66,7 +65,6 @@ const AddEmergencyContact = (props) => {
 				</label>
         <input 
 					type="text"
-					className="form-control"
 					id="email-input"
 					name="email"
 					value={formData.email}
@@ -87,6 +85,7 @@ const AddEmergencyContact = (props) => {
 			</div>
       </form>
     </div>
+		</div>
     </>
   )
 }

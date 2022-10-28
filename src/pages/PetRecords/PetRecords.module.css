@@ -1,3 +1,10 @@
+.recordsDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .displayCards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -16,17 +23,26 @@
   padding: 6px;
   margin-left: 20px;
   max-width: 240px;
-  font-size: .6em;
+  font-size: .4em;
   border-radius: 20px;;
 }
 
-a {
-  color: #C97B84;
-  font-size: 16px;
+.noRecords {
+  border: 3px solid whitesmoke;
+  background-color: #C97B84;
+  padding: 20px;
 }
 
-p {
-  margin-top: 5px;
-  margin-bottom: 0px;
-  font-size: 18px;
+.deleteBtn {
+  color: whitesmoke;
+  background-color: #29335C;
+  border: 2px solid #C97B84;
+  height: 42px;
+  font-size: 12px;
+  width: 100%;
+  padding: 6px;
+}
+
+.deleteBtn:hover {
+  box-shadow: 0px 1px 10px 1px #29335C;
 }

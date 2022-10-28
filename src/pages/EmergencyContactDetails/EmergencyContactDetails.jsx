@@ -32,23 +32,23 @@ const EmergencyContactDetails = ({ emergencyContact }) => {
   
   return (
     <>
-    <main>
+    <div className={styles.contactsPage}>
+      <h1>Emergency Contacts</h1>
       <div className={styles.emergencyContactContainer}>
-        <h1>Emergency Contacts</h1>
         {contact?.length
           ? contact.map(contact => 
           <div key={contact._id} className={styles.contactDiv}>
-            <h4>Name: {contact?.name}</h4>
-            <h4>Number: {contact?.phoneNumber}</h4>
-            <h4>Email: {contact?.email}</h4>
-            <button onClick={() => handleDeleteEmergencyContact(contact._id)}>Delete Contact</button>
+            <h5>{contact?.name}</h5>
+            <h5>{contact?.phoneNumber}</h5>
+            <h5>{contact?.email}</h5>
+            <button onClick={() => handleDeleteEmergencyContact(contact._id)}className={styles.deleteBtn}>Delete Contact</button>
           </div>
           )
-          : <p>No Emergency Contacts Added Yet</p>
+          : <p>No Emergency Contacts Added</p>
         }
-      <Link to={`/emergency-contact`} state={id}>Add Emergency Contact</Link>
       </div>
-    </main>
+      <Link to={`/emergency-contact`} state={id} className={styles.emergencyContactLink}>Add Emergency Contact</Link>
+      </div>
     </>
   )
 }

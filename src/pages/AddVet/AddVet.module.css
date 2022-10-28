@@ -1,9 +1,42 @@
-body {
-  margin-top: 100px;;
-  background-color: #29335C;
-  color: white;
-  font-size: 30px;
+.addVetDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.titleDiv {
   font-family: 'Lexend Deca', sans-serif;
+  text-align: center;
+  font-size: .6em;
+  margin-top: -20px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #C97B84;
+  margin-top: 1vh;
+  width: 80%;
+  text-align: center;
+}
+
+.petFormFont {
+  font-size: 18px;
+  color: #C97B84;
+}
+
+select {
+  background-color: #86BBD8;
+  border: 3px solid whitesmoke;
+  border-radius: 90px;
+  padding: 10px;
+  color: #29335C;
+  width: 50%;
+  font-family: 'Lexend Deca', sans-serif; 
 }
 
 textarea {
@@ -12,40 +45,17 @@ textarea {
   width: 70%;
   border-radius: 15px;
   margin: 10px;
+  font-family: 'Lexend Deca', sans-serif; 
 }
 
 input {
   padding: 10px;
   color: #29335C;
-  width: 70%;
+  width: 60%;
   margin-bottom: 25px;
   margin-top: 6px;
   border-radius: 15px;
-}
-
-.titleDiv {
-  font-family: 'Lexend Deca', sans-serif;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  font-size: .8em;
-  margin-top: -50px;
-}
-
-.formContainer {
-  color: #C97B84;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  margin-top: 1vh;
-}
-
-.petFormFont {
-  font-size: 18px;
-  color: #C97B84;
+  font-family: 'Lexend Deca', sans-serif; 
 }
 
 .addVetBtn {
@@ -53,8 +63,9 @@ input {
   border-radius: 90px;
   padding: 10px;
   color: #29335C;
-  width: 80%;
+  width: 70%;
   margin-bottom: 30px;
+  margin-top: 20px;
   border: 3px solid #F3DFC1;
 }
 
