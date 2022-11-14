@@ -47,33 +47,38 @@ const App = () => {
       const profileData = await profileService.getMyProfile()
       setProfile(profileData)
     }
-    fetchProfile()
-  }, [])
+    if (user){
+      fetchProfile()
+    }
+  }, [user])
 
   useEffect(() => {
     const fetchPets = async () => {
       const petsData = await petService.getPets()
       setPets(petsData)
     }
-    fetchPets()
-
-  }, [])
-
-  useEffect(() => {
-    const fetchVets = async () => {
-      const vetsData = await vetService.getVets()
-      setVets(vetsData)
+    if(user){
+      fetchPets()
     }
-    fetchVets()
-  }, [])
+  }, [user])
+
+  // useEffect(() => {
+  //   const fetchVets = async () => {
+  //     const vetsData = await vetService.getVets()
+  //     setVets(vetsData)
+  //   }
+  //   fetchVets()
+  // }, [])
 
   useEffect(() => {
     const fetchEmergencyContacts = async () => {
       const data = await emergencyService.getEmergencyContact()
       setEmergencyContact(data)
     }
-    fetchEmergencyContacts()
-  }, [])
+    if(user){
+      fetchEmergencyContacts()
+    }
+  }, [user])
 
   // functions for pet and vet
   const handleAddPet = async (newPetData, photo) => {
