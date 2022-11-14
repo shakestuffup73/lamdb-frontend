@@ -7,7 +7,7 @@ async function signup(user, photo) {
     console.warn(process.env.REACT_APP_BACK_END_SERVER_URL);
     const res = await fetch(`${BASE_URL}/signup`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      // headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(user),
     })
     const json = await res.json()
