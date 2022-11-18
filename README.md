@@ -1,6 +1,9 @@
 # LAMdb
 
-## Welcome to our LAMDdb app!
+## ABOUT THE APP
+LAMdb is a collaborative group project developed by Amanda Stern, Lily Howlader and Maddie Stevenson. As pet owners, we sought to build an application that would solve our personal problem of managing our pets' veterinary records. Knowing that our struggle was not unique to just us, we were inspired to create LAMdb to consolidate and manage veterinary records.
+
+### The Pitch
 It’s hard to keep track of vet records and invoices over the years, and most of us as pet owners rely solely on our email to do so. No matter if you have one fur-baby or five, that lack of organization makes managing our pet health history a challenging and daunting task! 
 
 This app will: 
@@ -8,19 +11,17 @@ This app will:
 - Store important information about your pets’ in their pet profile (this includes allergies, microchip number, behavior notes etc).
 - Store individual vet records for each vet visit your pet has.
 
-We hope you enjoy this app! 
-
 ![home](public/assets/home.png)
 ![profile](public/assets/profile.png)
 
-# Contributors:
+### Contributors:
 - Amanda Stern
 - Lily Howlader
 - Maddie Stevenson
   
-# Link to [LAMdb](https://lamdb.netlify.app/)
+## Link to [LAMdb](https://lamdb.netlify.app/)
 
-# Planning Materials:
+## Planning Materials:
 ### Link to [Trello Board](https://trello.com/b/Of4o4JVy/lamdb)
 
 ### Link to our [Whimsical](https://whimsical.com/lamdb-K2TjcLPjY9Ve3bbPKog8FU)
@@ -42,7 +43,7 @@ We hope you enjoy this app!
 - Sheep image from pixy.org - https://pixy.org/4523919/
 
 ## Next Steps:
-- Implement community feature.
-- Add components for pet's preferred toys and foods.
-- Allow PDF uploads from vet visits.
-- Add update feature for vet records.
+- Implement community feature
+- Add components for pet's preferred toys and foods
+- Allow PDF uploads from vet visits
+- Add update feature for vet records
