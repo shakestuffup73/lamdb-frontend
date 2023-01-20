@@ -12,7 +12,6 @@ const MyProfile = (props) => {
       <img src={`${props.profile.photo}`} alt="profile upload" style={{height: '90px', marginTop: '0px'}} />
       <Link to="/changePassword" className={styles.navUL}>Change Account Password</Link>
     </div>
-    <Link to="/addVet" className={styles.vetLink}>Add Vet Visit</Link>
     {props.pets?.length ?
       <div className={styles.displayCards}>
         {props.pets?.map((pet) =>
@@ -26,6 +25,7 @@ const MyProfile = (props) => {
           >
             View Emergency Contact
           </Link>
+          <Link to="/addVet" className={styles.vetLink}>Add Vet Visit</Link>
         </div> 
         )}
       </div>
